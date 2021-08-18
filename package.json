@@ -1,0 +1,17 @@
+{
+  "name": "com.fintokmak.skillsystem",
+  "version": "0.0.1",
+  "displayName": "Skill System",
+  "description": "This is the Skill System implemented by FinTOKMAK Studio",
+  "unity": "2019.4",
+  "unityRelease": "0b5",
+  "license": "GPL",
+  "dependencies": {
+  },
+  "keywords": [
+  ],
+  "author": {
+    "name": "FinTOKMAK Studio",
+    "email": "genesis_an@outlook.com"
+  }
+}
