@@ -14,7 +14,7 @@ namespace FinTOKMAK.SkillSystem
         public List<Skill> skills = new List<Skill>();
 
         //所有的技能事件名称
-        public List<string> skillEventsName = new List<string>();
+        public SkillEventNameConfig eventNameConfig;
 
         //逻辑管理器(BUFF)执行具体的技能逻辑
         private SkillLogicManager _manager;
@@ -28,12 +28,12 @@ namespace FinTOKMAK.SkillSystem
             _manager = GetComponent<SkillLogicManager>();
 
             //获取所有的技能事件名称，并创建对应的匿名委托
-            foreach (var name in skillEventsName) skillEvents.Add(name, () => { });
+            foreach (var name in eventNameConfig.eventNames) skillEvents.Add(name, () => { });
 
             //遍历所有的技能，并且将执行逻辑的触发条件，加入对应的事件监听中
             foreach (var skill in skills)
             {
-                skill.info.activeCount = skill.info.maxActiveCount;
+                skill.info.cumulateCount = skill.info.maxCumulateCount;
                 skill.logic.id = skill.info.id;
                 //如果技能为立即触发模式
                 if (skill.info.triggerType == TriggerType.Instance)
@@ -41,10 +41,10 @@ namespace FinTOKMAK.SkillSystem
                     //监听技能对应的触发事件，当该事件触发时，将技能加入manager，并执行对应onAdd
                     skillEvents[skill.info.triggerEventName] += () =>
                     {
-                        if (skill.info.activeCount > 0)
+                        if (skill.info.cumulateCount > 0)
                         {
                             _manager.Add(skill.logic);
-                            skill.info.activeCount--;
+                            skill.info.cumulateCount--;
                             skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
                         }
                         else
@@ -88,10 +88,10 @@ namespace FinTOKMAK.SkillSystem
             _time = 0;
             foreach (var skill in skills) //遍历所有技能，检查CD时间
                 if (skill.info.cdEndTime < Time.realtimeSinceStartup &&
-                    skill.info.activeCount < skill.info.maxActiveCount)
+                    skill.info.cumulateCount < skill.info.maxCumulateCount)
                 {
                     skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
-                    skill.info.activeCount++;
+                    skill.info.cumulateCount++;
                 }
         }
 

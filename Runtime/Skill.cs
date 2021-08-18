@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FinTOKMAK.SkillSystem
 {
-    [CreateAssetMenu(fileName = "Skill", menuName = "FinTOKMAK/SkillSystem/Create Skill Config",
+    [CreateAssetMenu(fileName = "Skill", menuName = "FinTOKMAK/Skill System/Create Skill Config",
         order = 0)]
     public class Skill : ScriptableObject
     {

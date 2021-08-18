@@ -15,6 +15,7 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         ///     技能的持续时间(秒)
         /// </summary>
+        [Tooltip("The time span the skill can last.")]
         public float continueTime;
 
         /// <summary>
@@ -25,16 +26,19 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         ///     技能效果类型
         /// </summary>
+        [Tooltip("The execution type of the skill.")]
         public SkillEffectType effectType;
 
         /// <summary>
         ///     技能停止时间是否使用覆盖模式
         /// </summary>
+        [Tooltip("If override the skill end time. If overlay, a new skill will not add the execution time to the remaining time")]
         public bool continueStopTimeOverlay;
 
         /// <summary>
         ///     技能在持续模式下的执行间隔(秒)
         /// </summary>
+        [Tooltip("The deltaTime of calling Continue() method.")]
         public float continueDeltaTime;
 
         /// <summary>
@@ -45,9 +49,9 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         ///     技能被添加时执行的方法
         /// </summary>
-        /// <param name="targer">添加技能的manager</param>
+        /// <param name="target">添加技能的manager</param>
         /// <param name="self">可能存在的技能，如果不存在则为空</param>
-        public virtual void OnAdd(SkillLogicManager targer, SkillLogic self)
+        public virtual void OnAdd(SkillLogicManager target, SkillLogic self)
         {
         }
 
