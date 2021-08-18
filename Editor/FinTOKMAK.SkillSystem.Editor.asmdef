@@ -1,0 +1,16 @@
+{
+    "name": "FinTOKMAK.SkillSystem.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a2d373552a170f44999345abfa824282"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
