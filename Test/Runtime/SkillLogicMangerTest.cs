@@ -138,9 +138,9 @@ public class SkillLogicManagerTest
         public bool runContinue;
         public int runContinueCount;
 
-        public override void OnAdd(SkillLogicManager targer, SkillLogic self)
+        public override void OnAdd(SkillLogicManager target, SkillLogic self)
         {
-            base.OnAdd(targer, self);
+            base.OnAdd(target, self);
             runAdd = true;
         }
 
