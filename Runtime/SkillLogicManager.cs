@@ -34,7 +34,7 @@ namespace FinTOKMAK.SkillSystem
                     return false;
                 }
 
-                Debug.Log($"RemoveSkill:{x.id},Time:{time}");
+                Debug.Log($"RemoveSkill:{x.id},continueStopTime:{x.continueStopTime},Time:{time}");
                 x.OnRemove();
                 return true;
             });
@@ -66,6 +66,7 @@ namespace FinTOKMAK.SkillSystem
 
             if (logic.continueStopTimeOverlay) //技能覆盖模式
                 logic.continueStopTime = (int) (time + logic.continueTime * 1000f); //覆盖
+            // TODO: 非Overlay模式第一次调用会导致技能释放失效，因为continueTime初始值为0
             else
                 logic.continueStopTime += (int) (logic.continueTime * 1000f); //非覆盖，时间累加模式
 
