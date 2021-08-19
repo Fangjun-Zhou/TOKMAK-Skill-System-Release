@@ -50,7 +50,10 @@ namespace FinTOKMAK.SkillSystem
             var theSkillLogic = skillList.FirstOrDefault(cus => cus.id == logic.id); //拿到第一个ID相同的技能
 
             if (theSkillLogic == null)
+            {
+                logic.continueStopTime = time;
                 skillList.Add(logic);
+            }
             else
                 logic = theSkillLogic;
 
