@@ -58,7 +58,7 @@ namespace FinTOKMAK.SkillSystem
                 else if (skill.info.triggerType == TriggerType.Prepared)
                 {
                     //开始监听技能准备事件
-                    skillEvents[skill.info.prepareEventName] += skill.PrepareAction;
+                    skillEvents[skill.info.prepareEventName] += skill.logic.PrepareAction;
                     //PrepareAction应该实现的内容：
                     //public void PrepareAction()
                     //{
@@ -67,10 +67,10 @@ namespace FinTOKMAK.SkillSystem
                     //    };
                     //}
                     //监听技能取消事件
-                    foreach (var CancelAction in skill.info.cancelEventName)
-                        skillEvents[CancelAction] += () =>
+                    foreach (var cancelAction in skill.info.cancelEventName)
+                        skillEvents[cancelAction] += () =>
                         {
-                            skillEvents[skill.info.prepareEventName] -= skill.PrepareAction;
+                            skillEvents[skill.info.prepareEventName] -= skill.logic.PrepareAction;
                         };
                 }
             }
@@ -78,6 +78,11 @@ namespace FinTOKMAK.SkillSystem
 
         private void Start()
         {
+            // Initialize all the skills
+            foreach (Skill skill in skills)
+            {
+                skill.logic.OnInitialization(_manager);
+            }
         }
 
         private void Update()

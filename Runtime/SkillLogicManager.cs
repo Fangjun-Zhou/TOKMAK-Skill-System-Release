@@ -74,7 +74,7 @@ namespace FinTOKMAK.SkillSystem
                 logic.continueStopTime += (int) (logic.continueTime * 1000f); //非覆盖，时间累加模式
 
             logic.continueDeltaTimeNext = time + logic.continueDeltaTime * 1000f;
-            logic.OnAdd(this, theSkillLogic);
+            logic.OnAdd(theSkillLogic);
             Debug.Log(
                 $"AddSKill[{logic.continueStopTimeOverlay}]:{logic.id},time{time},stop{logic.continueStopTime},[{logic.continueTime * 1000f}]");
         }

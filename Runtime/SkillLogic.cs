@@ -7,6 +7,8 @@ namespace FinTOKMAK.SkillSystem
     /// </summary>
     public class SkillLogic : ScriptableObject
     {
+        #region Public Field
+
         /// <summary>
         ///     技能的ID
         /// </summary>
@@ -46,12 +48,37 @@ namespace FinTOKMAK.SkillSystem
         /// </summary>
         [HideInInspector] public float continueDeltaTimeNext;
 
+        #endregion
+
+        #region Private Field
+
+        protected SkillLogicManager _manager;
+
+        #endregion
+        
+        /// <summary>
+        /// The logic that should be execute when prepare
+        /// </summary>
+        public virtual void PrepareAction()
+        {
+            
+        }
+
+        /// <summary>
+        /// Call this method to initialize the skill, including getting necessary components
+        /// <param name="manager">The SkillLogicManager to add the skill (in the SkillManager)</param>
+        /// </summary>
+        public virtual void OnInitialization(SkillLogicManager manager)
+        {
+            _manager = manager;
+        }
+
         /// <summary>
         ///     技能被添加时执行的方法
         /// </summary>
         /// <param name="target">添加技能的manager</param>
         /// <param name="self">可能存在的技能，如果不存在则为空</param>
-        public virtual void OnAdd(SkillLogicManager target, SkillLogic self)
+        public virtual void OnAdd(SkillLogic self)
         {
         }
 

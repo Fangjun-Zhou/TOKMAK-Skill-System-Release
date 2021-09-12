@@ -8,9 +8,5 @@ namespace FinTOKMAK.SkillSystem
     {
         public SkillLogic logic;
         public SkillInfo info;
-
-        public void PrepareAction()
-        {
-        }
     }
 }
