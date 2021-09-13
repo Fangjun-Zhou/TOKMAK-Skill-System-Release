@@ -8,10 +8,12 @@ namespace FinTOKMAK.SkillSystem
     [RequireComponent(typeof(SkillLogicManager))]
     public class SkillManager : MonoBehaviour
     {
+        #region Public Field
+
         public float cdDetectionInterval = 0.1f;
 
         //所有可用技能的实现
-        public List<Skill> skills = new List<Skill>();
+        public Dictionary<string, Skill> skills = new Dictionary<string, Skill>();
 
         //所有的技能事件名称
         public SkillEventNameConfig eventNameConfig;
@@ -21,7 +23,21 @@ namespace FinTOKMAK.SkillSystem
 
         public readonly Dictionary<string, Action> skillEvents = new Dictionary<string, Action>();
 
+        // the timer for the cd counter
         private float _time;
+
+        /// <summary>
+        /// if localCD is enabled
+        /// </summary>
+        public bool canCountLocalCD => _canCountLocalCD;
+
+        #endregion
+
+        #region Private Field
+
+        private bool _canCountLocalCD = true;
+
+        #endregion
 
         private void Awake()
         {
@@ -31,7 +47,7 @@ namespace FinTOKMAK.SkillSystem
             foreach (var name in eventNameConfig.eventNames) skillEvents.Add(name, () => { });
 
             //遍历所有的技能，并且将执行逻辑的触发条件，加入对应的事件监听中
-            foreach (var skill in skills)
+            foreach (var skill in skills.Values)
             {
                 skill.info.cumulateCount = skill.info.maxCumulateCount;
                 skill.logic.id = skill.info.id;
@@ -79,7 +95,7 @@ namespace FinTOKMAK.SkillSystem
         private void Start()
         {
             // Initialize all the skills
-            foreach (Skill skill in skills)
+            foreach (Skill skill in skills.Values)
             {
                 skill.logic.OnInitialization(_manager);
             }
@@ -87,17 +103,20 @@ namespace FinTOKMAK.SkillSystem
 
         private void Update()
         {
-            _time += Time.deltaTime;
-            if (_time < cdDetectionInterval) //技能检测间隔
-                return;
-            _time = 0;
-            foreach (var skill in skills) //遍历所有技能，检查CD时间
-                if (skill.info.cdEndTime < Time.realtimeSinceStartup &&
-                    skill.info.cumulateCount < skill.info.maxCumulateCount)
-                {
-                    skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
-                    skill.info.cumulateCount++;
-                }
+            if (_canCountLocalCD)
+            {
+                _time += Time.deltaTime;
+                if (_time < cdDetectionInterval) //技能检测间隔
+                    return;
+                _time = 0;
+                foreach (var skill in skills.Values) //遍历所有技能，检查CD时间
+                    if (skill.info.cdEndTime < Time.realtimeSinceStartup &&
+                        skill.info.cumulateCount < skill.info.maxCumulateCount)
+                    {
+                        skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
+                        skill.info.cumulateCount++;
+                    }
+            }
         }
 
         /// <summary>
@@ -107,11 +126,14 @@ namespace FinTOKMAK.SkillSystem
         public void Add(Skill skill)
         {
             Debug.Log($"AddSKill:{skill.info.id}");
-            var theSkillLogic = skills.FirstOrDefault(cus => cus.info.id == skill.info.id); //拿到第一个ID相同的技能
-            if (theSkillLogic == null)
-                skills.Add(skill);
-            else
+
+            if (skills.ContainsKey(skill.info.id))
+            {
                 Debug.Log($"该技能已存在:{skill.info.id}");
+                return;
+            }
+
+            skills.Add(skill.info.id, skill);
         }
 
         /// <summary>
@@ -120,11 +142,13 @@ namespace FinTOKMAK.SkillSystem
         /// <param name="ID">技能ID</param>
         public void Remove(string ID)
         {
-            var removeCount = skills.RemoveAll(cus => cus.info.id == ID); //拿到第一个ID相同的技能
-            if (removeCount >= 1)
-                Debug.Log("该技能已移除");
-            else
+            if (skills.ContainsKey(ID))
+            {
                 Debug.Log("该技能不存在");
+                return;
+            }
+            // Remove the skill with correspond ID
+            var removeCount = skills.Remove(ID);
         }
 
         /// <summary>
@@ -134,17 +158,39 @@ namespace FinTOKMAK.SkillSystem
         /// <returns>返回对应技能，如果技能不存在则返回null</returns>
         public Skill Get(string ID)
         {
-            return skills.FirstOrDefault(cus => cus.info.id == ID); //拿到第一个ID相同的技能
+            return skills[ID]; //拿到第一个ID相同的技能
         }
 
+        /// <summary>
+        /// Clear all the skills
+        /// </summary>
         public void Clear()
         {
             skills.Clear();
         }
 
+        /// <summary>
+        /// Invoke a skill event
+        /// </summary>
+        /// <param name="SkillEventName">the name of the skill event</param>
         public void SkillEvnetsInvoke(string SkillEventName)
         {
             skillEvents[SkillEventName]?.Invoke();
+        }
+
+        /// <summary>
+        /// Call this method to get the skill cumulate count for all the skills
+        /// </summary>
+        /// <returns>The list of the cumulate count for all the skills</returns>
+        public List<int> GetSkillCumulateCount()
+        {
+            List<int> res = new List<int>();
+            foreach (Skill skill in skills.Values)
+            {
+                res.Add(skill.info.cumulateCount);
+            }
+
+            return res;
         }
     }
 }
