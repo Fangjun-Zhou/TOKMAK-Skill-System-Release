@@ -46,6 +46,9 @@ namespace FinTOKMAK.SkillSystem
         /// </summary>
         public float cd;
         
+        /// <summary>
+        /// 结束冷却的时间
+        /// </summary>
         [HideInInspector] public float cdEndTime;
 
         /// <summary>

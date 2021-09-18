@@ -13,6 +13,10 @@ namespace FinTOKMAK.SkillSystem
         public float cdDetectionInterval = 0.1f;
 
         //所有可用技能的实现
+        /// <summary>
+        /// Skills that are added to the player when initialized
+        /// </summary>
+        public List<Skill> preLoadSkills;
         public Dictionary<string, Skill> skills = new Dictionary<string, Skill>();
 
         //所有的技能事件名称
@@ -21,7 +25,15 @@ namespace FinTOKMAK.SkillSystem
         //逻辑管理器(BUFF)执行具体的技能逻辑
         private SkillLogicManager _manager;
 
+        /// <summary>
+        /// The skill event dictionary that work locally 
+        /// </summary>
         public readonly Dictionary<string, Action> skillEvents = new Dictionary<string, Action>();
+
+        /// <summary>
+        /// The skill event hook that can inform external system the skill event has been called
+        /// </summary>
+        public Action<string> skillEventHook;
 
         // the timer for the cd counter
         private float _time;
@@ -29,19 +41,35 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// if localCD is enabled
         /// </summary>
-        public bool canCountLocalCD => _canCountLocalCD;
+        public bool useLocalSkillSystem
+        {
+            get
+            {
+                return _useLocalSkillSystem;
+            }
+            set
+            {
+                _useLocalSkillSystem = value;
+            }
+        }
 
         #endregion
 
         #region Private Field
 
-        private bool _canCountLocalCD = true;
+        private bool _useLocalSkillSystem = true;
 
         #endregion
 
         private void Awake()
         {
             _manager = GetComponent<SkillLogicManager>();
+            
+            // Initialize all the skills to the
+            foreach (Skill skill in preLoadSkills)
+            {
+                Add(skill);
+            }
 
             //获取所有的技能事件名称，并创建对应的匿名委托
             foreach (var name in eventNameConfig.eventNames) skillEvents.Add(name, () => { });
@@ -103,7 +131,7 @@ namespace FinTOKMAK.SkillSystem
 
         private void Update()
         {
-            if (_canCountLocalCD)
+            if (_useLocalSkillSystem)
             {
                 _time += Time.deltaTime;
                 if (_time < cdDetectionInterval) //技能检测间隔
@@ -175,22 +203,41 @@ namespace FinTOKMAK.SkillSystem
         /// <param name="SkillEventName">the name of the skill event</param>
         public void SkillEvnetsInvoke(string SkillEventName)
         {
-            skillEvents[SkillEventName]?.Invoke();
+            // invoke the skill logic only when local
+            if (useLocalSkillSystem)
+                skillEvents[SkillEventName]?.Invoke();
+            else
+            {
+                skillEventHook?.Invoke(SkillEventName);
+            }
         }
 
         /// <summary>
         /// Call this method to get the skill cumulate count for all the skills
         /// </summary>
-        /// <returns>The list of the cumulate count for all the skills</returns>
-        public List<int> GetSkillCumulateCount()
+        /// <returns>The dictionary of the cumulate count for all the skills, key is the unique id, value is the cumulateCount</returns>
+        public Dictionary<string, int> GetSkillCumulateCount()
         {
-            List<int> res = new List<int>();
+            Dictionary<string, int> res = new Dictionary<string, int>();
             foreach (Skill skill in skills.Values)
             {
-                res.Add(skill.info.cumulateCount);
+                res.Add(skill.info.id, skill.info.cumulateCount);
             }
 
             return res;
+        }
+        
+        // TODO: Finish SetSkillCumulateCount
+        /// <summary>
+        /// Call this method to set the cumulate count of all the skills
+        /// </summary>
+        /// <param name="cumulateDictionary">all the cumulate count of the skills</param>
+        public void SetSkillCumulateCount(Dictionary<string, int> cumulateDictionary)
+        {
+            foreach (string id in cumulateDictionary.Keys)
+            {
+                skills[id].info.cumulateCount = cumulateDictionary[id];
+            }
         }
     }
 }
