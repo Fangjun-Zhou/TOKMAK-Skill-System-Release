@@ -215,6 +215,7 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// The struct for skill status storage
         /// </summary>
+        [System.Serializable]
         public struct SkillStatus
         {
             /// <summary>
@@ -226,6 +227,11 @@ namespace FinTOKMAK.SkillSystem
             /// The time left for skill to finish cd
             /// </summary>
             public float restCdTime;
+
+            public override string ToString()
+            {
+                return $"{{cumulateCount: {cumulateCount}; restCdTime: {restCdTime}}}";
+            }
         }
 
         /// <summary>
