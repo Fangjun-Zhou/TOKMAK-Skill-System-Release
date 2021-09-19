@@ -125,6 +125,7 @@ namespace FinTOKMAK.SkillSystem
             // Initialize all the skills
             foreach (Skill skill in skills.Values)
             {
+                // TODO: seperate skill logic here
                 skill.logic.OnInitialization(_manager);
             }
         }
@@ -153,7 +154,11 @@ namespace FinTOKMAK.SkillSystem
         /// <param name="logic">要添加的技能类型</param>
         public void Add(Skill skill)
         {
+            // Instantiate (deep copy skill)
             skill = Instantiate(skill);
+            skill.logic = Instantiate(skill.logic);
+            skill.info = Instantiate(skill.info);
+            
             Debug.Log($"AddSKill:{skill.info.id}");
 
             if (skills.ContainsKey(skill.info.id))
@@ -204,10 +209,13 @@ namespace FinTOKMAK.SkillSystem
         /// <param name="skillEventName">the name of the skill event</param>
         public void SkillEventsInvoke(string skillEventName)
         {
-            Debug.Log($"GameObject: {gameObject.GetInstanceID()}");
+            int instanceID = gameObject.GetInstanceID();
+            Debug.Log($"GameObject: {instanceID}");
             // invoke the skill logic only when local
             if (useLocalSkillSystem)
+            {
                 _skillEvents[skillEventName+gameObject.GetInstanceID()]?.Invoke();
+            }
             else
             {
                 skillEventHook?.Invoke(skillEventName);
