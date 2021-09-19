@@ -22,6 +22,11 @@ namespace FinTOKMAK.SkillSystem
         public string description;
 
         /// <summary>
+        /// The Icon of the skill
+        /// </summary>
+        public Texture skillIcon;
+
+        /// <summary>
         /// 技能事件配置文件
         /// </summary>
         public SkillEventNameConfig eventNameConfig;

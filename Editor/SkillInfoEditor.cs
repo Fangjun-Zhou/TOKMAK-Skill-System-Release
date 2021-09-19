@@ -55,6 +55,7 @@ namespace FinTOKMAK.SkillSystem
 
         private SerializedProperty _skillName;
         private SerializedProperty _skillDescription;
+        private SerializedProperty _skillIcon;
 
         private SerializedProperty _cd;
         private SerializedProperty _maxCumulateCount;
@@ -70,6 +71,7 @@ namespace FinTOKMAK.SkillSystem
             _id = serializedObject.FindProperty("id");
             _skillName = serializedObject.FindProperty("skillName");
             _skillDescription = serializedObject.FindProperty("description");
+            _skillIcon = serializedObject.FindProperty("skillIcon");
 
             _cd = serializedObject.FindProperty("cd");
             _maxCumulateCount = serializedObject.FindProperty("maxCumulateCount");
@@ -139,6 +141,7 @@ namespace FinTOKMAK.SkillSystem
 
                 EditorGUILayout.PropertyField(_skillName);
                 EditorGUILayout.PropertyField(_skillDescription);
+                EditorGUILayout.PropertyField(_skillIcon);
             }
             EditorGUILayout.EndVertical();
             
