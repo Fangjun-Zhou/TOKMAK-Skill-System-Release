@@ -213,15 +213,35 @@ namespace FinTOKMAK.SkillSystem
         }
 
         /// <summary>
+        /// The struct for skill status storage
+        /// </summary>
+        public struct SkillStatus
+        {
+            /// <summary>
+            /// The number of cumulated skill that can be used
+            /// </summary>
+            public int cumulateCount;
+
+            /// <summary>
+            /// The time left for skill to finish cd
+            /// </summary>
+            public float restCdTime;
+        }
+
+        /// <summary>
         /// Call this method to get the skill cumulate count for all the skills
         /// </summary>
         /// <returns>The dictionary of the cumulate count for all the skills, key is the unique id, value is the cumulateCount</returns>
-        public Dictionary<string, int> GetSkillCumulateCount()
+        public Dictionary<string, SkillStatus> GetSkillInfo()
         {
-            Dictionary<string, int> res = new Dictionary<string, int>();
+            Dictionary<string, SkillStatus> res = new Dictionary<string, SkillStatus>();
             foreach (Skill skill in skills.Values)
             {
-                res.Add(skill.info.id, skill.info.cumulateCount);
+                res.Add(skill.info.id, new SkillStatus()
+                {
+                    cumulateCount = skill.info.cumulateCount,
+                    restCdTime = skill.info.cdEndTime - Time.realtimeSinceStartup
+                });
             }
 
             return res;
@@ -231,12 +251,13 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// Call this method to set the cumulate count of all the skills
         /// </summary>
-        /// <param name="cumulateDictionary">all the cumulate count of the skills</param>
-        public void SetSkillCumulateCount(Dictionary<string, int> cumulateDictionary)
+        /// <param name="cdStatus">all the cumulate count of the skills</param>
+        public void SetSkillStatus(Dictionary<string, SkillStatus> cdStatus)
         {
-            foreach (string id in cumulateDictionary.Keys)
+            foreach (string id in cdStatus.Keys)
             {
-                skills[id].info.cumulateCount = cumulateDictionary[id];
+                skills[id].info.cumulateCount = cdStatus[id].cumulateCount;
+                skills[id].info.cdEndTime = Time.realtimeSinceStartup + cdStatus[id].restCdTime;
             }
         }
     }
