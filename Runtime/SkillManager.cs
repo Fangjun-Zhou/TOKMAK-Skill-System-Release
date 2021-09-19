@@ -72,7 +72,7 @@ namespace FinTOKMAK.SkillSystem
             }
 
             //获取所有的技能事件名称，并创建对应的匿名委托
-            foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name+gameObject.GetInstanceID(), () => { });
+            foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name, () => { });
 
             //遍历所有的技能，并且将执行逻辑的触发条件，加入对应的事件监听中
             foreach (var skill in skills.Values)
@@ -83,7 +83,7 @@ namespace FinTOKMAK.SkillSystem
                 if (skill.info.triggerType == TriggerType.Instance)
                 {
                     //监听技能对应的触发事件，当该事件触发时，将技能加入manager，并执行对应onAdd
-                    _skillEvents[skill.info.triggerEventName+gameObject.GetInstanceID()] += () =>
+                    _skillEvents[skill.info.triggerEventName] += () =>
                     {
                         if (skill.info.cumulateCount > 0)
                         {
@@ -102,7 +102,7 @@ namespace FinTOKMAK.SkillSystem
                 else if (skill.info.triggerType == TriggerType.Prepared)
                 {
                     //开始监听技能准备事件
-                    _skillEvents[skill.info.prepareEventName+gameObject.GetInstanceID()] += skill.logic.PrepareAction;
+                    _skillEvents[skill.info.prepareEventName] += skill.logic.PrepareAction;
                     //PrepareAction应该实现的内容：
                     //public void PrepareAction()
                     //{
@@ -114,7 +114,7 @@ namespace FinTOKMAK.SkillSystem
                     foreach (var cancelAction in skill.info.cancelEventName)
                         _skillEvents[cancelAction] += () =>
                         {
-                            _skillEvents[skill.info.prepareEventName+gameObject.GetInstanceID()] -= skill.logic.PrepareAction;
+                            _skillEvents[skill.info.prepareEventName] -= skill.logic.PrepareAction;
                         };
                 }
             }
@@ -209,12 +209,10 @@ namespace FinTOKMAK.SkillSystem
         /// <param name="skillEventName">the name of the skill event</param>
         public void SkillEventsInvoke(string skillEventName)
         {
-            int instanceID = gameObject.GetInstanceID();
-            Debug.Log($"GameObject: {instanceID}");
             // invoke the skill logic only when local
             if (useLocalSkillSystem)
             {
-                _skillEvents[skillEventName+gameObject.GetInstanceID()]?.Invoke();
+                _skillEvents[skillEventName]?.Invoke();
             }
             else
             {
