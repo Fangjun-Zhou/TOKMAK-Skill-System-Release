@@ -215,6 +215,7 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// The struct for skill status storage
         /// </summary>
+        [System.Serializable]
         public struct SkillStatus
         {
             /// <summary>
