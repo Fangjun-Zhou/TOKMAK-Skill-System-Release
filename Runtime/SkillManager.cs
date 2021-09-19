@@ -153,6 +153,7 @@ namespace FinTOKMAK.SkillSystem
         /// <param name="logic">要添加的技能类型</param>
         public void Add(Skill skill)
         {
+            skill = Instantiate(skill);
             Debug.Log($"AddSKill:{skill.info.id}");
 
             if (skills.ContainsKey(skill.info.id))
