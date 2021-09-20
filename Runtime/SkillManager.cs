@@ -77,7 +77,10 @@ namespace FinTOKMAK.SkillSystem
             //遍历所有的技能，并且将执行逻辑的触发条件，加入对应的事件监听中
             foreach (var skill in skills.Values)
             {
+                // Initialize the cumulateCount
                 skill.info.cumulateCount = skill.info.maxCumulateCount;
+                // Initialize the cdEndTime
+                skill.info.cdEndTime = Time.realtimeSinceStartup;
                 skill.logic.id = skill.info.id;
                 //如果技能为立即触发模式
                 if (skill.info.triggerType == TriggerType.Instance)
@@ -89,7 +92,11 @@ namespace FinTOKMAK.SkillSystem
                         {
                             _manager.Add(skill.logic);
                             skill.info.cumulateCount--;
-                            skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
+                            // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime
+                            if (skill.info.cdEndTime < Time.realtimeSinceStartup)
+                            {
+                                skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
+                            }
                         }
                         else
                         {
