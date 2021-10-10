@@ -2,7 +2,8 @@
     "name": "FinTOKMAK.SkillSystem.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:a65d9a73e86e8a16094732b640e510ef"
+        "UnityInterfaceSupport",
+        "Unity.Localization"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

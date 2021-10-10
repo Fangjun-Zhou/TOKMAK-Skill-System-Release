@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace FinTOKMAK.SkillSystem
 {
@@ -14,12 +15,11 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// 技能的名称（用户交互用）
         /// </summary>
-        public string skillName;
+        public LocalizedString skillName;
         /// <summary>
         /// 技能的描述（用户交互用）
         /// </summary>
-        [TextArea]
-        public string description;
+        public LocalizedString description;
 
         /// <summary>
         /// The Icon of the skill
