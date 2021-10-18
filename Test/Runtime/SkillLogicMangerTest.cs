@@ -59,13 +59,13 @@ public class SkillLogicManagerTest
     [UnityTest]
     public IEnumerator SkillLogic_Manager_Test_Remove()
     {
-        //将技能加入skillLogic
+        // 将技能加入skillLogic
         _logicManager.Add(_logic);
-        //检查确认技能的OnRemove方法未执行
+        // 检查确认技能的OnRemove方法未执行
         Assert.IsFalse(_logic.runRemove);
-        //调用Remove方法移除技能
+        // 调用Remove方法移除技能
         _logicManager.Remove(_logic.id);
-        //检查移除技能触发的OnRemove方法是否执行了
+        // 检查移除技能触发的OnRemove方法是否执行了
         Assert.IsTrue(_logic.runRemove);
         yield return null;
     }
@@ -73,16 +73,16 @@ public class SkillLogicManagerTest
     [UnityTest]
     public IEnumerator SkillLogic_Manager_Test_AutoRemove()
     {
-        //设置技能持续时间为1秒
+        // 设置技能持续时间为1秒
         _logic.continueTime = 1f;
-        //将技能加入skillLogic
+        // 将技能加入skillLogic
         _logicManager.Add(_logic);
-        //检查确认技能的OnRemove方法未执行
+        // 检查确认技能的OnRemove方法未执行
         Assert.IsFalse(_logic.runRemove);
         yield return new WaitForSeconds(0.5f);
-        //等待0.5秒，检查是否提前执行了OnRemove
+        // 等待0.5秒，检查是否提前执行了OnRemove
         Assert.IsFalse(_logic.runRemove);
-        //等待2秒后，查看是否自动OnRemove技能
+        // 等待2秒后，查看是否自动OnRemove技能
         yield return new WaitForSeconds(2);
         Assert.IsTrue(_logic.runRemove);
     }
@@ -90,21 +90,21 @@ public class SkillLogicManagerTest
     [UnityTest]
     public IEnumerator SkillLogic_Manager_Test_Continue()
     {
-        //设置技能持续时间为1秒
+        // 设置技能持续时间为1秒
         _logic.continueTime = 1f;
-        //设置技能持续执行间隔为0.1秒
+        // 设置技能持续执行间隔为0.1秒
         _logic.continueDeltaTime = 0.1f;
-        //将技能设置为ARC模式,这样会执行Add,Remove和Continue方法
+        // 将技能设置为ARC模式,这样会执行Add,Remove和Continue方法
         _logic.effectType = SkillEffectType.ARContinueMode;
-        //检查Continue方法未执行
+        // 检查Continue方法未执行
         Assert.IsFalse(_logic.runContinue);
-        //将技能添加进去
+        // 将技能添加进去
         _logicManager.Add(_logic);
-        //再次检查确认Continue方法未执行
+        // 再次检查确认Continue方法未执行
         Assert.IsFalse(_logic.runContinue);
         //等待2秒
         yield return new WaitForSeconds(2);
-        //检查确认Continue方法已经执行
+        // 检查确认Continue方法已经执行
         Assert.IsTrue(_logic.runContinue);
     }
 
@@ -115,19 +115,20 @@ public class SkillLogicManagerTest
     [UnityTest]
     public IEnumerator SkillLogic_Manager_Test_ContinueRunDelta()
     {
-        //设置技能持续时间为1秒
+        // 设置技能持续时间为1秒
         _logic.continueTime = 1f;
-        //设置技能持续执行间隔为0.2秒
+        // 设置技能持续执行间隔为0.2秒
         _logic.continueDeltaTime = 0.2f;
-        //将技能设置为ARC模式,这样会执行Add,Remove和Continue方法
+        // 将技能设置为ARC模式,这样会执行Add,Remove和Continue方法
         _logic.effectType = SkillEffectType.ARContinueMode;
-        //将技能添加进去
+        // 将技能添加进去
         _logicManager.Add(_logic);
-        //等待2秒
+        // 等待2秒
         yield return new WaitForSeconds(2);
-        var count = (int)(_logic.continueTime / _logic.continueDeltaTime);
-        //检查确认Continue方法的执行次数是否有误
-        Assert.IsTrue(_logic.runContinueCount == count);
+        // 四舍五入考虑舍入误差
+        int count = (int)(_logic.continueTime / _logic.continueDeltaTime + 0.5f);
+        // 检查确认Continue方法的执行次数是否有误
+        Assert.AreEqual(count, _logic.runContinueCount);
     }
 
 
