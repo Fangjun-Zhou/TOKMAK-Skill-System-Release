@@ -10,28 +10,35 @@ namespace FinTOKMAK.SkillSystem
     {
         #region Public Field
 
+        /// <summary>
+        /// The time interval of cd detection. Smaller means higher cd detect frequency.
+        /// </summary>
         public float cdDetectionInterval = 0.1f;
 
-        //所有可用技能的实现
         /// <summary>
-        /// Skills that are added to the player when initialized
+        /// Skills that are added to the player when initialized.
         /// </summary>
         public List<Skill> preLoadSkills;
+        /// <summary>
+        /// All the skills currently in the system.
+        /// </summary>
         public Dictionary<string, Skill> skills = new Dictionary<string, Skill>();
 
-        //所有的技能事件名称
+        /// <summary>
+        /// The config file that store the name of all the skill events.
+        /// </summary>
         public SkillEventNameConfig eventNameConfig;
 
-        //逻辑管理器(BUFF)执行具体的技能逻辑
+        /// <summary>
+        /// The skill logic manager that add and remove the skill logic.
+        /// Works in a similar way comparing to the Buff system.
+        /// </summary>
         private SkillLogicManager _manager;
 
         /// <summary>
         /// The skill event hook that can inform external system the skill event has been called
         /// </summary>
         public Action<string> skillEventHook;
-
-        // the timer for the cd counter
-        private float _time;
 
         /// <summary>
         /// if localCD is enabled
@@ -53,10 +60,20 @@ namespace FinTOKMAK.SkillSystem
         #region Private Field
         
         /// <summary>
+        /// The timer to detect cd, the cdDetectionInterval control the frequency of cd detection.
+        /// </summary>
+        private float _time;
+        
+        /// <summary>
         /// The skill event dictionary that work locally 
         /// </summary>
         private Dictionary<string, Action> _skillEvents = new Dictionary<string, Action>();
 
+        /// <summary>
+        /// If use local skill system.
+        /// When unchecked, the skill system will be taken over by the outer system
+        /// such as the one on the server.
+        /// </summary>
         private bool _useLocalSkillSystem = true;
 
         #endregion
@@ -71,26 +88,29 @@ namespace FinTOKMAK.SkillSystem
                 Add(skill);
             }
 
-            //获取所有的技能事件名称，并创建对应的匿名委托
+            // Get the name of all the skills, create correspond Action
             foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name, () => { });
 
-            //遍历所有的技能，并且将执行逻辑的触发条件，加入对应的事件监听中
+            // Traverse all the skill and add the condition of event trigger into the correspond Action
             foreach (var skill in skills.Values)
             {
                 // Initialize the cumulateCount
                 skill.info.cumulateCount = skill.info.maxCumulateCount;
                 // Initialize the cdEndTime
                 skill.info.cdEndTime = Time.realtimeSinceStartup;
-                skill.logic.id = skill.info.id;
-                //如果技能为立即触发模式
+                skill.id = skill.info.id;
+                // If the skill is Instance mode, trigger the event immediately when the event is invoked.
                 if (skill.info.triggerType == TriggerType.Instance)
                 {
-                    //监听技能对应的触发事件，当该事件触发时，将技能加入manager，并执行对应onAdd
+                    // 监听技能对应的触发事件，当该事件触发时，将技能加入manager，并执行对应onAdd
+                    // Add the trigger logic into the corresponding event.
+                    // When the event is triggered, add the skill logic through SkillLogicManager.
+                    // OnAdd method will be execute at that time by the SkillLogicManager.
                     _skillEvents[skill.info.triggerEventName] += () =>
                     {
                         if (skill.info.cumulateCount > 0)
                         {
-                            _manager.Add(skill.logic);
+                            _manager.Add(skill);
                             skill.info.cumulateCount--;
                             // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime
                             if (skill.info.cdEndTime < Time.realtimeSinceStartup)
@@ -100,28 +120,29 @@ namespace FinTOKMAK.SkillSystem
                         }
                         else
                         {
-                            Debug.Log("技能冷却中");
+                            Debug.Log("The skill is still cooling.");
                         }
                     };
                 }
 
-                //如果技能为准备模式，则将
+                // If the skill is prepare mode, add the prepareAction to the prepare event
                 else if (skill.info.triggerType == TriggerType.Prepared)
                 {
-                    //开始监听技能准备事件
-                    _skillEvents[skill.info.prepareEventName] += skill.logic.PrepareAction;
-                    //PrepareAction应该实现的内容：
-                    //public void PrepareAction()
-                    //{
-                    //    skillEvents[skill.TriggerActionName] += () => {
-                    //        manager.Add(skill.skillLogic);
-                    //    };
-                    //}
-                    //监听技能取消事件
+                    // Start listening to the prepare event.
+                    _skillEvents[skill.info.prepareEventName] += skill.PrepareAction;
+                    // PrepareAction应该实现的内容：
+                    // public void PrepareAction()
+                    // {
+                    //     skillEvents[skill.TriggerActionName] += () => {
+                    //         manager.Add(skill.skillLogic);
+                    //     };
+                    // }
+                    
+                    // The event to cancel the prepare event.
                     foreach (var cancelAction in skill.info.cancelEventName)
                         _skillEvents[cancelAction] += () =>
                         {
-                            _skillEvents[skill.info.prepareEventName] -= skill.logic.PrepareAction;
+                            _skillEvents[skill.info.prepareEventName] -= skill.PrepareAction;
                         };
                 }
             }
@@ -132,8 +153,8 @@ namespace FinTOKMAK.SkillSystem
             // Initialize all the skills
             foreach (Skill skill in skills.Values)
             {
-                // TODO: seperate skill logic here
-                skill.logic.OnInitialization(_manager);
+                // TODO: separate skill logic here
+                skill.OnInitialization(_manager);
             }
         }
 
@@ -142,9 +163,11 @@ namespace FinTOKMAK.SkillSystem
             if (_useLocalSkillSystem)
             {
                 _time += Time.deltaTime;
-                if (_time < cdDetectionInterval) //技能检测间隔
+                // The cd detect time interval
+                if (_time < cdDetectionInterval)
                     return;
                 _time = 0;
+                // Traverse all the skills and check the cd time
                 foreach (var skill in skills.Values) //遍历所有技能，检查CD时间
                     if (skill.info.cdEndTime < Time.realtimeSinceStartup &&
                         skill.info.cumulateCount < skill.info.maxCumulateCount)
@@ -163,7 +186,7 @@ namespace FinTOKMAK.SkillSystem
         {
             // Instantiate (deep copy skill)
             skill = Instantiate(skill);
-            skill.logic = Instantiate(skill.logic);
+            skill = Instantiate(skill);
             skill.info = Instantiate(skill.info);
             
             Debug.Log($"AddSKill:{skill.info.id}");
