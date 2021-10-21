@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "UnityInterfaceSupport",
-        "Unity.Localization"
+        "Unity.Localization",
+        "NaughtyAttributes.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
