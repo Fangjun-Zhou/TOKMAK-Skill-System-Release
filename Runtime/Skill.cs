@@ -1,53 +1,64 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace FinTOKMAK.SkillSystem
 {
     /// <summary>
-    ///     技能效果接口
+    /// The base class of all the skill.
+    /// Implement the main skill logic here.
     /// </summary>
     public class Skill : ScriptableObject
     {
         #region Public Field
         
+        [BoxGroup("Skill Info")]
         [Tooltip("The universal skill info of the skill")]
         public SkillInfo info;
 
         /// <summary>
-        ///     技能的ID
+        /// The unique ID of the skill.
         /// </summary>
         [HideInInspector] public string id;
 
         /// <summary>
-        ///     技能的持续时间(秒)
+        /// The logic execution effect of the Skill.
+        /// ARMode means execute OnAdd and OnRemove.
+        /// ContinueMode means execute OnContinue.
+        /// ARContinueMode means execute all of theme.
         /// </summary>
-        [Tooltip("The time span the skill can last.")]
-        public float continueTime;
-
-        /// <summary>
-        ///     技能的停止时间
-        /// </summary>
-        [HideInInspector] public float continueStopTime;
-
-        /// <summary>
-        ///     技能效果类型
-        /// </summary>
+        [BoxGroup("Universal Skill Logic Settings")]
         [Tooltip("The execution type of the skill.")]
         public SkillEffectType effectType;
-
+        
+        // TODO: To be remove this continueTime. Use the timeline and callback function to control.
         /// <summary>
-        ///     技能停止时间是否使用覆盖模式
+        /// The time span the Skill last.
         /// </summary>
+        [BoxGroup("Universal Skill Logic Settings")]
+        [Tooltip("The time span the skill can last.")]
+        public float continueTime;
+        
+        /// <summary>
+        /// The time the skill will be removed.
+        /// </summary>
+        [HideInInspector] public float continueStopTime;
+        
+        /// <summary>
+        /// Will a new instance of the skill adding to the skill system overwrite the current skill instance's stop time.
+        /// </summary>
+        [BoxGroup("Universal Skill Logic Settings")]
         [Tooltip("If override the skill end time. If overlay, a new skill will not add the execution time to the remaining time")]
         public bool continueStopTimeOverlay;
 
         /// <summary>
-        ///     技能在持续模式下的执行间隔(秒)
+        /// The delta time of OnContinue callback execution.
         /// </summary>
+        [BoxGroup("Universal Skill Logic Settings")]
         [Tooltip("The deltaTime of calling Continue() method.")]
         public float continueDeltaTime;
 
         /// <summary>
-        ///     技能在持续模式下的下一次间隔执行时间
+        /// The next time OnContinue will execute.
         /// </summary>
         [HideInInspector] public float continueDeltaTimeNext;
 
@@ -55,6 +66,9 @@ namespace FinTOKMAK.SkillSystem
 
         #region Private Field
 
+        /// <summary>
+        /// The SkillLogicManager passed in when initialized.
+        /// </summary>
         protected SkillLogicManager _manager;
 
         #endregion
@@ -77,23 +91,27 @@ namespace FinTOKMAK.SkillSystem
         }
 
         /// <summary>
-        ///     技能被添加时执行的方法
+        /// The OnAdd callback function.
+        /// Called when the skill logic is added to the skill system (execute).
+        /// Main logic of the skill should be write here.
         /// </summary>
-        /// <param name="target">添加技能的manager</param>
-        /// <param name="self">可能存在的技能，如果不存在则为空</param>
+        /// <param name="self">Possible another instance of current skill </param>
         public virtual void OnAdd(Skill self)
         {
         }
 
         /// <summary>
-        ///     技能被移除时执行的方法
+        /// The OnRemove callback function.
+        /// The callback function execute when the skill logic is removed from the skill system.
+        /// Most of the cleanup code should write here.
         /// </summary>
         public virtual void OnRemove()
         {
         }
 
         /// <summary>
-        ///     技能持续运行时执行的方法
+        /// The OnContinue callback function.
+        /// Similar to the Update callback function in the MonoBehaviour.
         /// </summary>
         public virtual void OnContinue()
         {
@@ -101,22 +119,25 @@ namespace FinTOKMAK.SkillSystem
     }
 
     /// <summary>
-    ///     技能效果类型
+    /// Skill execution effect.
     /// </summary>
     public enum SkillEffectType
     {
         /// <summary>
-        ///     添加、移除时生效
+        /// Effective when add and remove.
+        /// Execute OnAdd and OnRemove.
         /// </summary>
         ARMode,
 
         /// <summary>
-        ///     持续生效
+        /// Effective continuously.
+        /// Execute OnContinue.
         /// </summary>
         ContinueMode,
 
         /// <summary>
-        ///     添加、移除、持续生效
+        /// Effective all the time.
+        /// Execute OnAdd, OnRemove, and OnContinue.
         /// </summary>
         ARContinueMode
     }

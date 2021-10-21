@@ -12,7 +12,7 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         ///     技能列表
         /// </summary>
-        private readonly List<SkillLogic> skillList = new List<SkillLogic>();
+        private readonly List<Skill> skillList = new List<Skill>();
 
         private int time;
 
@@ -45,7 +45,7 @@ namespace FinTOKMAK.SkillSystem
         ///     触发技能
         /// </summary>
         /// <param name="logic">要添加的技能类型</param>
-        public void Add(SkillLogic logic)
+        public void Add(Skill logic)
         {
             var theSkillLogic = skillList.FirstOrDefault(cus => cus.id == logic.id); //拿到第一个ID相同的技能
 
@@ -112,7 +112,7 @@ namespace FinTOKMAK.SkillSystem
         /// </summary>
         /// <param name="id">技能的ID</param>
         /// <returns>返回已有的技能,如果没有，则返回Null</returns>
-        public SkillLogic Get(string id)
+        public Skill Get(string id)
         {
             return skillList.FirstOrDefault(cus => cus.id == id); //拿到第一个ID相同的技能
         }
