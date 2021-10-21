@@ -17,7 +17,7 @@ public class SkillLogicManagerTest
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     private GameObject _gameObject;
-    private TestSkillLogic _logic;
+    private TestSkill _logic;
     private SkillLogicManager _logicManager;
 
     [SetUp]
@@ -25,7 +25,7 @@ public class SkillLogicManagerTest
     {
         _gameObject = new GameObject();
         _logicManager = _gameObject.AddComponent<SkillLogicManager>();
-        _logic = new TestSkillLogic();
+        _logic = new TestSkill();
         _logic.continueDeltaTime = 0.02f;
         _logic.effectType = SkillEffectType.ARMode;
         _logic.continueStopTimeOverlay = true;
@@ -132,14 +132,14 @@ public class SkillLogicManagerTest
     }
 
 
-    public class TestSkillLogic : SkillLogic
+    public class TestSkill : Skill
     {
         public bool runAdd;
         public bool runRemove;
         public bool runContinue;
         public int runContinueCount;
 
-        public override void OnAdd(SkillLogic self)
+        public override void OnAdd(Skill self)
         {
             base.OnAdd(self);
             runAdd = true;
