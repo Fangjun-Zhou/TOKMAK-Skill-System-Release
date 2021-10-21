@@ -4,7 +4,11 @@
 
 RequiredDeps:
 
- `"net.wraithavengames.unityinterfacesupport": "https://github.com/TheDudeFromCI/Unity-Interface-Support.git?path=/Packages/net.wraithavengames.unityinterfacesupport"`
+```
+"net.wraithavengames.unityinterfacesupport": "https://github.com/TheDudeFromCI/Unity-Interface-Support.git?path=/Packages/net.wraithavengames.unityinterfacesupport",
+"com.fintokmak.timelinesystem": "http://anw.noip.cn:8010/Fangjun_Zhou/tokmak-timeline-system.git"
+"com.serializabledictionary": "https://github.com/Fangjun-Zhou/Unity-SerializableDictionary.git#upm-serializabledictionary"
+```
 
 add by git URL:
 

@@ -1,0 +1,3581 @@
+id: cs.temp.dll
+language: CSharp
+name:
+  Default: cs.temp.dll
+qualifiedName:
+  Default: cs.temp.dll
+type: Assembly
+modifiers: {}
+items:
+- id: FinTOKMAK.SkillSystem
+  commentId: N:FinTOKMAK.SkillSystem
+  language: CSharp
+  name:
+    CSharp: FinTOKMAK.SkillSystem
+    VB: FinTOKMAK.SkillSystem
+  nameWithType:
+    CSharp: FinTOKMAK.SkillSystem
+    VB: FinTOKMAK.SkillSystem
+  qualifiedName:
+    CSharp: FinTOKMAK.SkillSystem
+    VB: FinTOKMAK.SkillSystem
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+  modifiers: {}
+  items:
+  - id: FinTOKMAK.SkillSystem.SkillInfoEditor
+    commentId: T:FinTOKMAK.SkillSystem.SkillInfoEditor
+    language: CSharp
+    name:
+      CSharp: SkillInfoEditor
+      VB: SkillInfoEditor
+    nameWithType:
+      CSharp: SkillInfoEditor
+      VB: SkillInfoEditor
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillInfoEditor
+      VB: FinTOKMAK.SkillSystem.SkillInfoEditor
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillInfoEditor
+      path: ''
+      startLine: 9
+    syntax:
+      content:
+        CSharp: 'public class SkillInfoEditor : Editor'
+        VB: >-
+          Public Class SkillInfoEditor
+
+              Inherits Editor
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI
+      commentId: M:FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI
+      language: CSharp
+      name:
+        CSharp: OnInspectorGUI()
+        VB: OnInspectorGUI()
+      nameWithType:
+        CSharp: SkillInfoEditor.OnInspectorGUI()
+        VB: SkillInfoEditor.OnInspectorGUI()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI()
+        VB: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: OnInspectorGUI
+        path: ''
+        startLine: 124
+      syntax:
+        content:
+          CSharp: public override void OnInspectorGUI()
+          VB: Public Overrides Sub OnInspectorGUI
+      overload: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI*
+      modifiers:
+        CSharp:
+        - public
+        - override
+        VB:
+        - Public
+        - Overrides
+  - id: FinTOKMAK.SkillSystem.Skill
+    commentId: T:FinTOKMAK.SkillSystem.Skill
+    language: CSharp
+    name:
+      CSharp: Skill
+      VB: Skill
+    nameWithType:
+      CSharp: Skill
+      VB: Skill
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.Skill
+      VB: FinTOKMAK.SkillSystem.Skill
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: Skill
+      path: ''
+      startLine: 276
+    syntax:
+      content:
+        CSharp: 'public class Skill : ScriptableObject'
+        VB: >-
+          Public Class Skill
+
+              Inherits ScriptableObject
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: FinTOKMAK.SkillSystem.Skill.logic
+      commentId: F:FinTOKMAK.SkillSystem.Skill.logic
+      language: CSharp
+      name:
+        CSharp: logic
+        VB: logic
+      nameWithType:
+        CSharp: Skill.logic
+        VB: Skill.logic
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.Skill.logic
+        VB: FinTOKMAK.SkillSystem.Skill.logic
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: logic
+        path: ''
+        startLine: 280
+      syntax:
+        content:
+          CSharp: public SkillLogic logic
+          VB: Public logic As SkillLogic
+        return:
+          type: FinTOKMAK.SkillSystem.SkillLogic
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.Skill.info
+      commentId: F:FinTOKMAK.SkillSystem.Skill.info
+      language: CSharp
+      name:
+        CSharp: info
+        VB: info
+      nameWithType:
+        CSharp: Skill.info
+        VB: Skill.info
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.Skill.info
+        VB: FinTOKMAK.SkillSystem.Skill.info
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: info
+        path: ''
+        startLine: 281
+      syntax:
+        content:
+          CSharp: public SkillInfo info
+          VB: Public info As SkillInfo
+        return:
+          type: FinTOKMAK.SkillSystem.SkillInfo
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: FinTOKMAK.SkillSystem.SkillEventNameConfig
+    commentId: T:FinTOKMAK.SkillSystem.SkillEventNameConfig
+    language: CSharp
+    name:
+      CSharp: SkillEventNameConfig
+      VB: SkillEventNameConfig
+    nameWithType:
+      CSharp: SkillEventNameConfig
+      VB: SkillEventNameConfig
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillEventNameConfig
+      VB: FinTOKMAK.SkillSystem.SkillEventNameConfig
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillEventNameConfig
+      path: ''
+      startLine: 289
+    syntax:
+      content:
+        CSharp: 'public class SkillEventNameConfig : ScriptableObject'
+        VB: >-
+          Public Class SkillEventNameConfig
+
+              Inherits ScriptableObject
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillEventNameConfig.eventNames
+      commentId: F:FinTOKMAK.SkillSystem.SkillEventNameConfig.eventNames
+      language: CSharp
+      name:
+        CSharp: eventNames
+        VB: eventNames
+      nameWithType:
+        CSharp: SkillEventNameConfig.eventNames
+        VB: SkillEventNameConfig.eventNames
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillEventNameConfig.eventNames
+        VB: FinTOKMAK.SkillSystem.SkillEventNameConfig.eventNames
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: eventNames
+        path: ''
+        startLine: 295
+      summary: "\n所有的技能事件名称\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public List<string> eventNames
+          VB: Public eventNames As List(Of String)
+        return:
+          type: System.Collections.Generic.List{System.String}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: FinTOKMAK.SkillSystem.SkillInfo
+    commentId: T:FinTOKMAK.SkillSystem.SkillInfo
+    language: CSharp
+    name:
+      CSharp: SkillInfo
+      VB: SkillInfo
+    nameWithType:
+      CSharp: SkillInfo
+      VB: SkillInfo
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillInfo
+      VB: FinTOKMAK.SkillSystem.SkillInfo
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillInfo
+      path: ''
+      startLine: 304
+    syntax:
+      content:
+        CSharp: 'public class SkillInfo : ScriptableObject'
+        VB: >-
+          Public Class SkillInfo
+
+              Inherits ScriptableObject
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillInfo.id
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.id
+      language: CSharp
+      name:
+        CSharp: id
+        VB: id
+      nameWithType:
+        CSharp: SkillInfo.id
+        VB: SkillInfo.id
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.id
+        VB: FinTOKMAK.SkillSystem.SkillInfo.id
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: id
+        path: ''
+        startLine: 311
+      summary: "\n技能的唯一ID\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string id
+          VB: Public id As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.skillName
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.skillName
+      language: CSharp
+      name:
+        CSharp: skillName
+        VB: skillName
+      nameWithType:
+        CSharp: SkillInfo.skillName
+        VB: SkillInfo.skillName
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.skillName
+        VB: FinTOKMAK.SkillSystem.SkillInfo.skillName
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: skillName
+        path: ''
+        startLine: 315
+      summary: "\n技能的名称（用户交互用）\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public LocalizedString skillName
+          VB: Public skillName As LocalizedString
+        return:
+          type: LocalizedString
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.description
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.description
+      language: CSharp
+      name:
+        CSharp: description
+        VB: description
+      nameWithType:
+        CSharp: SkillInfo.description
+        VB: SkillInfo.description
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.description
+        VB: FinTOKMAK.SkillSystem.SkillInfo.description
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: description
+        path: ''
+        startLine: 319
+      summary: "\n技能的描述（用户交互用）\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public LocalizedString description
+          VB: Public description As LocalizedString
+        return:
+          type: LocalizedString
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.skillIcon
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.skillIcon
+      language: CSharp
+      name:
+        CSharp: skillIcon
+        VB: skillIcon
+      nameWithType:
+        CSharp: SkillInfo.skillIcon
+        VB: SkillInfo.skillIcon
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.skillIcon
+        VB: FinTOKMAK.SkillSystem.SkillInfo.skillIcon
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: skillIcon
+        path: ''
+        startLine: 324
+      summary: "\nThe Icon of the skill\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public Texture skillIcon
+          VB: Public skillIcon As Texture
+        return:
+          type: Texture
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.eventNameConfig
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.eventNameConfig
+      language: CSharp
+      name:
+        CSharp: eventNameConfig
+        VB: eventNameConfig
+      nameWithType:
+        CSharp: SkillInfo.eventNameConfig
+        VB: SkillInfo.eventNameConfig
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.eventNameConfig
+        VB: FinTOKMAK.SkillSystem.SkillInfo.eventNameConfig
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: eventNameConfig
+        path: ''
+        startLine: 329
+      summary: "\n技能事件配置文件\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public SkillEventNameConfig eventNameConfig
+          VB: Public eventNameConfig As SkillEventNameConfig
+        return:
+          type: FinTOKMAK.SkillSystem.SkillEventNameConfig
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.triggerEventName
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.triggerEventName
+      language: CSharp
+      name:
+        CSharp: triggerEventName
+        VB: triggerEventName
+      nameWithType:
+        CSharp: SkillInfo.triggerEventName
+        VB: SkillInfo.triggerEventName
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.triggerEventName
+        VB: FinTOKMAK.SkillSystem.SkillInfo.triggerEventName
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: triggerEventName
+        path: ''
+        startLine: 334
+      summary: "\n直接触发事件名称\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string triggerEventName
+          VB: Public triggerEventName As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.prepareEventName
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.prepareEventName
+      language: CSharp
+      name:
+        CSharp: prepareEventName
+        VB: prepareEventName
+      nameWithType:
+        CSharp: SkillInfo.prepareEventName
+        VB: SkillInfo.prepareEventName
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.prepareEventName
+        VB: FinTOKMAK.SkillSystem.SkillInfo.prepareEventName
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: prepareEventName
+        path: ''
+        startLine: 339
+      summary: "\n准备事件名称\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string prepareEventName
+          VB: Public prepareEventName As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.cancelEventName
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.cancelEventName
+      language: CSharp
+      name:
+        CSharp: cancelEventName
+        VB: cancelEventName
+      nameWithType:
+        CSharp: SkillInfo.cancelEventName
+        VB: SkillInfo.cancelEventName
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.cancelEventName
+        VB: FinTOKMAK.SkillSystem.SkillInfo.cancelEventName
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: cancelEventName
+        path: ''
+        startLine: 344
+      summary: "\n取消事件名称列表\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public List<string> cancelEventName
+          VB: Public cancelEventName As List(Of String)
+        return:
+          type: System.Collections.Generic.List{System.String}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.cd
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.cd
+      language: CSharp
+      name:
+        CSharp: cd
+        VB: cd
+      nameWithType:
+        CSharp: SkillInfo.cd
+        VB: SkillInfo.cd
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.cd
+        VB: FinTOKMAK.SkillSystem.SkillInfo.cd
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: cd
+        path: ''
+        startLine: 349
+      summary: "\n技能的冷却cd\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public float cd
+          VB: Public cd As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.cdEndTime
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.cdEndTime
+      language: CSharp
+      name:
+        CSharp: cdEndTime
+        VB: cdEndTime
+      nameWithType:
+        CSharp: SkillInfo.cdEndTime
+        VB: SkillInfo.cdEndTime
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.cdEndTime
+        VB: FinTOKMAK.SkillSystem.SkillInfo.cdEndTime
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: cdEndTime
+        path: ''
+        startLine: 354
+      summary: "\n结束冷却的时间\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public float cdEndTime
+          VB: Public cdEndTime As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.maxCumulateCount
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.maxCumulateCount
+      language: CSharp
+      name:
+        CSharp: maxCumulateCount
+        VB: maxCumulateCount
+      nameWithType:
+        CSharp: SkillInfo.maxCumulateCount
+        VB: SkillInfo.maxCumulateCount
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.maxCumulateCount
+        VB: FinTOKMAK.SkillSystem.SkillInfo.maxCumulateCount
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: maxCumulateCount
+        path: ''
+        startLine: 359
+      summary: "\n最大可积累技能数量\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public int maxCumulateCount
+          VB: Public maxCumulateCount As Integer
+        return:
+          type: System.Int32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.cumulateCount
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.cumulateCount
+      language: CSharp
+      name:
+        CSharp: cumulateCount
+        VB: cumulateCount
+      nameWithType:
+        CSharp: SkillInfo.cumulateCount
+        VB: SkillInfo.cumulateCount
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.cumulateCount
+        VB: FinTOKMAK.SkillSystem.SkillInfo.cumulateCount
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: cumulateCount
+        path: ''
+        startLine: 364
+      summary: "\n当前可用技能数量\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public int cumulateCount
+          VB: Public cumulateCount As Integer
+        return:
+          type: System.Int32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.isActive
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.isActive
+      language: CSharp
+      name:
+        CSharp: isActive
+        VB: isActive
+      nameWithType:
+        CSharp: SkillInfo.isActive
+        VB: SkillInfo.isActive
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.isActive
+        VB: FinTOKMAK.SkillSystem.SkillInfo.isActive
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: isActive
+        path: ''
+        startLine: 370
+      summary: "\n是否满足前置技能要求\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public bool isActive
+          VB: Public isActive As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.needActiveSkillID
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.needActiveSkillID
+      language: CSharp
+      name:
+        CSharp: needActiveSkillID
+        VB: needActiveSkillID
+      nameWithType:
+        CSharp: SkillInfo.needActiveSkillID
+        VB: SkillInfo.needActiveSkillID
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.needActiveSkillID
+        VB: FinTOKMAK.SkillSystem.SkillInfo.needActiveSkillID
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: needActiveSkillID
+        path: ''
+        startLine: 374
+      summary: "\n前置技能要求\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public List<string> needActiveSkillID
+          VB: Public needActiveSkillID As List(Of String)
+        return:
+          type: System.Collections.Generic.List{System.String}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillInfo.triggerType
+      commentId: F:FinTOKMAK.SkillSystem.SkillInfo.triggerType
+      language: CSharp
+      name:
+        CSharp: triggerType
+        VB: triggerType
+      nameWithType:
+        CSharp: SkillInfo.triggerType
+        VB: SkillInfo.triggerType
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillInfo.triggerType
+        VB: FinTOKMAK.SkillSystem.SkillInfo.triggerType
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: triggerType
+        path: ''
+        startLine: 378
+      summary: "\n技能触发类型\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public TriggerType triggerType
+          VB: Public triggerType As TriggerType
+        return:
+          type: FinTOKMAK.SkillSystem.TriggerType
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: FinTOKMAK.SkillSystem.TriggerType
+    commentId: T:FinTOKMAK.SkillSystem.TriggerType
+    language: CSharp
+    name:
+      CSharp: TriggerType
+      VB: TriggerType
+    nameWithType:
+      CSharp: TriggerType
+      VB: TriggerType
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.TriggerType
+      VB: FinTOKMAK.SkillSystem.TriggerType
+    type: Enum
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: TriggerType
+      path: ''
+      startLine: 381
+    syntax:
+      content:
+        CSharp: public enum TriggerType
+        VB: Public Enum TriggerType
+    modifiers:
+      CSharp:
+      - public
+      - enum
+      VB:
+      - Public
+      - Enum
+    items:
+    - id: FinTOKMAK.SkillSystem.TriggerType.Instance
+      commentId: F:FinTOKMAK.SkillSystem.TriggerType.Instance
+      language: CSharp
+      name:
+        CSharp: Instance
+        VB: Instance
+      nameWithType:
+        CSharp: TriggerType.Instance
+        VB: TriggerType.Instance
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.TriggerType.Instance
+        VB: FinTOKMAK.SkillSystem.TriggerType.Instance
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Instance
+        path: ''
+        startLine: 386
+      summary: "\n立即触发模式，即事件直接触发技能\n"
+      example: []
+      syntax:
+        content:
+          CSharp: Instance = 0
+          VB: Instance = 0
+        return:
+          type: FinTOKMAK.SkillSystem.TriggerType
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+    - id: FinTOKMAK.SkillSystem.TriggerType.Prepared
+      commentId: F:FinTOKMAK.SkillSystem.TriggerType.Prepared
+      language: CSharp
+      name:
+        CSharp: Prepared
+        VB: Prepared
+      nameWithType:
+        CSharp: TriggerType.Prepared
+        VB: TriggerType.Prepared
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.TriggerType.Prepared
+        VB: FinTOKMAK.SkillSystem.TriggerType.Prepared
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Prepared
+        path: ''
+        startLine: 390
+      summary: "\n准备触发模式，即准备事件激活准备状态，进入准备状态后才可以由触发事件触发技能\n"
+      example: []
+      syntax:
+        content:
+          CSharp: Prepared = 1
+          VB: Prepared = 1
+        return:
+          type: FinTOKMAK.SkillSystem.TriggerType
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+  - id: FinTOKMAK.SkillSystem.SkillLogic
+    commentId: T:FinTOKMAK.SkillSystem.SkillLogic
+    language: CSharp
+    name:
+      CSharp: SkillLogic
+      VB: SkillLogic
+    nameWithType:
+      CSharp: SkillLogic
+      VB: SkillLogic
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillLogic
+      VB: FinTOKMAK.SkillSystem.SkillLogic
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillLogic
+      path: ''
+      startLine: 400
+    summary: "\n技能效果接口\n"
+    example: []
+    syntax:
+      content:
+        CSharp: 'public class SkillLogic : ScriptableObject'
+        VB: >-
+          Public Class SkillLogic
+
+              Inherits ScriptableObject
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillLogic.id
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic.id
+      language: CSharp
+      name:
+        CSharp: id
+        VB: id
+      nameWithType:
+        CSharp: SkillLogic.id
+        VB: SkillLogic.id
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.id
+        VB: FinTOKMAK.SkillSystem.SkillLogic.id
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: id
+        path: ''
+        startLine: 407
+      summary: "\n技能的ID\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string id
+          VB: Public id As String
+        return:
+          type: System.String
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogic.continueTime
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic.continueTime
+      language: CSharp
+      name:
+        CSharp: continueTime
+        VB: continueTime
+      nameWithType:
+        CSharp: SkillLogic.continueTime
+        VB: SkillLogic.continueTime
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.continueTime
+        VB: FinTOKMAK.SkillSystem.SkillLogic.continueTime
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: continueTime
+        path: ''
+        startLine: 413
+      summary: "\n技能的持续时间(秒)\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public float continueTime
+          VB: Public continueTime As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogic.continueStopTime
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic.continueStopTime
+      language: CSharp
+      name:
+        CSharp: continueStopTime
+        VB: continueStopTime
+      nameWithType:
+        CSharp: SkillLogic.continueStopTime
+        VB: SkillLogic.continueStopTime
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.continueStopTime
+        VB: FinTOKMAK.SkillSystem.SkillLogic.continueStopTime
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: continueStopTime
+        path: ''
+        startLine: 418
+      summary: "\n技能的停止时间\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public float continueStopTime
+          VB: Public continueStopTime As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogic.effectType
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic.effectType
+      language: CSharp
+      name:
+        CSharp: effectType
+        VB: effectType
+      nameWithType:
+        CSharp: SkillLogic.effectType
+        VB: SkillLogic.effectType
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.effectType
+        VB: FinTOKMAK.SkillSystem.SkillLogic.effectType
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: effectType
+        path: ''
+        startLine: 424
+      summary: "\n技能效果类型\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public SkillEffectType effectType
+          VB: Public effectType As SkillEffectType
+        return:
+          type: FinTOKMAK.SkillSystem.SkillEffectType
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogic.continueStopTimeOverlay
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic.continueStopTimeOverlay
+      language: CSharp
+      name:
+        CSharp: continueStopTimeOverlay
+        VB: continueStopTimeOverlay
+      nameWithType:
+        CSharp: SkillLogic.continueStopTimeOverlay
+        VB: SkillLogic.continueStopTimeOverlay
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.continueStopTimeOverlay
+        VB: FinTOKMAK.SkillSystem.SkillLogic.continueStopTimeOverlay
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: continueStopTimeOverlay
+        path: ''
+        startLine: 430
+      summary: "\n技能停止时间是否使用覆盖模式\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public bool continueStopTimeOverlay
+          VB: Public continueStopTimeOverlay As Boolean
+        return:
+          type: System.Boolean
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTime
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTime
+      language: CSharp
+      name:
+        CSharp: continueDeltaTime
+        VB: continueDeltaTime
+      nameWithType:
+        CSharp: SkillLogic.continueDeltaTime
+        VB: SkillLogic.continueDeltaTime
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTime
+        VB: FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTime
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: continueDeltaTime
+        path: ''
+        startLine: 436
+      summary: "\n技能在持续模式下的执行间隔(秒)\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public float continueDeltaTime
+          VB: Public continueDeltaTime As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTimeNext
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTimeNext
+      language: CSharp
+      name:
+        CSharp: continueDeltaTimeNext
+        VB: continueDeltaTimeNext
+      nameWithType:
+        CSharp: SkillLogic.continueDeltaTimeNext
+        VB: SkillLogic.continueDeltaTimeNext
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTimeNext
+        VB: FinTOKMAK.SkillSystem.SkillLogic.continueDeltaTimeNext
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: continueDeltaTimeNext
+        path: ''
+        startLine: 441
+      summary: "\n技能在持续模式下的下一次间隔执行时间\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public float continueDeltaTimeNext
+          VB: Public continueDeltaTimeNext As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogic._manager
+      commentId: F:FinTOKMAK.SkillSystem.SkillLogic._manager
+      language: CSharp
+      name:
+        CSharp: _manager
+        VB: _manager
+      nameWithType:
+        CSharp: SkillLogic._manager
+        VB: SkillLogic._manager
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic._manager
+        VB: FinTOKMAK.SkillSystem.SkillLogic._manager
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: _manager
+        path: ''
+        startLine: 447
+      syntax:
+        content:
+          CSharp: protected SkillLogicManager _manager
+          VB: Protected _manager As SkillLogicManager
+        return:
+          type: FinTOKMAK.SkillSystem.SkillLogicManager
+      modifiers:
+        CSharp:
+        - protected
+        VB:
+        - Protected
+    - id: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogic.PrepareAction
+      language: CSharp
+      name:
+        CSharp: PrepareAction()
+        VB: PrepareAction()
+      nameWithType:
+        CSharp: SkillLogic.PrepareAction()
+        VB: SkillLogic.PrepareAction()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction()
+        VB: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: PrepareAction
+        path: ''
+        startLine: 454
+      summary: "\nThe logic that should be execute when prepare\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public virtual void PrepareAction()
+          VB: Public Overridable Sub PrepareAction
+      overload: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction*
+      modifiers:
+        CSharp:
+        - public
+        - virtual
+        VB:
+        - Public
+        - Overridable
+    - id: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization(FinTOKMAK.SkillSystem.SkillLogicManager)
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogic.OnInitialization(FinTOKMAK.SkillSystem.SkillLogicManager)
+      language: CSharp
+      name:
+        CSharp: OnInitialization(SkillLogicManager)
+        VB: OnInitialization(SkillLogicManager)
+      nameWithType:
+        CSharp: SkillLogic.OnInitialization(SkillLogicManager)
+        VB: SkillLogic.OnInitialization(SkillLogicManager)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization(FinTOKMAK.SkillSystem.SkillLogicManager)
+        VB: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization(FinTOKMAK.SkillSystem.SkillLogicManager)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: OnInitialization
+        path: ''
+        startLine: 463
+      summary: "\nCall this method to initialize the skill, including getting necessary components\n<param name=\"manager\">The SkillLogicManager to add the skill (in the SkillManager)</param>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public virtual void OnInitialization(SkillLogicManager manager)
+          VB: Public Overridable Sub OnInitialization(manager As SkillLogicManager)
+        parameters:
+        - id: manager
+          type: FinTOKMAK.SkillSystem.SkillLogicManager
+      overload: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization*
+      modifiers:
+        CSharp:
+        - public
+        - virtual
+        VB:
+        - Public
+        - Overridable
+    - id: FinTOKMAK.SkillSystem.SkillLogic.OnAdd(FinTOKMAK.SkillSystem.SkillLogic)
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogic.OnAdd(FinTOKMAK.SkillSystem.SkillLogic)
+      language: CSharp
+      name:
+        CSharp: OnAdd(SkillLogic)
+        VB: OnAdd(SkillLogic)
+      nameWithType:
+        CSharp: SkillLogic.OnAdd(SkillLogic)
+        VB: SkillLogic.OnAdd(SkillLogic)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.OnAdd(FinTOKMAK.SkillSystem.SkillLogic)
+        VB: FinTOKMAK.SkillSystem.SkillLogic.OnAdd(FinTOKMAK.SkillSystem.SkillLogic)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: OnAdd
+        path: ''
+        startLine: 473
+      summary: "\n技能被添加时执行的方法\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public virtual void OnAdd(SkillLogic self)
+          VB: Public Overridable Sub OnAdd(self As SkillLogic)
+        parameters:
+        - id: self
+          type: FinTOKMAK.SkillSystem.SkillLogic
+          description: 可能存在的技能，如果不存在则为空
+      overload: FinTOKMAK.SkillSystem.SkillLogic.OnAdd*
+      modifiers:
+        CSharp:
+        - public
+        - virtual
+        VB:
+        - Public
+        - Overridable
+    - id: FinTOKMAK.SkillSystem.SkillLogic.OnRemove
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogic.OnRemove
+      language: CSharp
+      name:
+        CSharp: OnRemove()
+        VB: OnRemove()
+      nameWithType:
+        CSharp: SkillLogic.OnRemove()
+        VB: SkillLogic.OnRemove()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.OnRemove()
+        VB: FinTOKMAK.SkillSystem.SkillLogic.OnRemove()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: OnRemove
+        path: ''
+        startLine: 480
+      summary: "\n技能被移除时执行的方法\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public virtual void OnRemove()
+          VB: Public Overridable Sub OnRemove
+      overload: FinTOKMAK.SkillSystem.SkillLogic.OnRemove*
+      modifiers:
+        CSharp:
+        - public
+        - virtual
+        VB:
+        - Public
+        - Overridable
+    - id: FinTOKMAK.SkillSystem.SkillLogic.OnContinue
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogic.OnContinue
+      language: CSharp
+      name:
+        CSharp: OnContinue()
+        VB: OnContinue()
+      nameWithType:
+        CSharp: SkillLogic.OnContinue()
+        VB: SkillLogic.OnContinue()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogic.OnContinue()
+        VB: FinTOKMAK.SkillSystem.SkillLogic.OnContinue()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: OnContinue
+        path: ''
+        startLine: 487
+      summary: "\n技能持续运行时执行的方法\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public virtual void OnContinue()
+          VB: Public Overridable Sub OnContinue
+      overload: FinTOKMAK.SkillSystem.SkillLogic.OnContinue*
+      modifiers:
+        CSharp:
+        - public
+        - virtual
+        VB:
+        - Public
+        - Overridable
+  - id: FinTOKMAK.SkillSystem.SkillEffectType
+    commentId: T:FinTOKMAK.SkillSystem.SkillEffectType
+    language: CSharp
+    name:
+      CSharp: SkillEffectType
+      VB: SkillEffectType
+    nameWithType:
+      CSharp: SkillEffectType
+      VB: SkillEffectType
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillEffectType
+      VB: FinTOKMAK.SkillSystem.SkillEffectType
+    type: Enum
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillEffectType
+      path: ''
+      startLine: 495
+    summary: "\n技能效果类型\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public enum SkillEffectType
+        VB: Public Enum SkillEffectType
+    modifiers:
+      CSharp:
+      - public
+      - enum
+      VB:
+      - Public
+      - Enum
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillEffectType.ARMode
+      commentId: F:FinTOKMAK.SkillSystem.SkillEffectType.ARMode
+      language: CSharp
+      name:
+        CSharp: ARMode
+        VB: ARMode
+      nameWithType:
+        CSharp: SkillEffectType.ARMode
+        VB: SkillEffectType.ARMode
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillEffectType.ARMode
+        VB: FinTOKMAK.SkillSystem.SkillEffectType.ARMode
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: ARMode
+        path: ''
+        startLine: 500
+      summary: "\n添加、移除时生效\n"
+      example: []
+      syntax:
+        content:
+          CSharp: ARMode = 0
+          VB: ARMode = 0
+        return:
+          type: FinTOKMAK.SkillSystem.SkillEffectType
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+    - id: FinTOKMAK.SkillSystem.SkillEffectType.ContinueMode
+      commentId: F:FinTOKMAK.SkillSystem.SkillEffectType.ContinueMode
+      language: CSharp
+      name:
+        CSharp: ContinueMode
+        VB: ContinueMode
+      nameWithType:
+        CSharp: SkillEffectType.ContinueMode
+        VB: SkillEffectType.ContinueMode
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillEffectType.ContinueMode
+        VB: FinTOKMAK.SkillSystem.SkillEffectType.ContinueMode
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: ContinueMode
+        path: ''
+        startLine: 505
+      summary: "\n持续生效\n"
+      example: []
+      syntax:
+        content:
+          CSharp: ContinueMode = 1
+          VB: ContinueMode = 1
+        return:
+          type: FinTOKMAK.SkillSystem.SkillEffectType
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+    - id: FinTOKMAK.SkillSystem.SkillEffectType.ARContinueMode
+      commentId: F:FinTOKMAK.SkillSystem.SkillEffectType.ARContinueMode
+      language: CSharp
+      name:
+        CSharp: ARContinueMode
+        VB: ARContinueMode
+      nameWithType:
+        CSharp: SkillEffectType.ARContinueMode
+        VB: SkillEffectType.ARContinueMode
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillEffectType.ARContinueMode
+        VB: FinTOKMAK.SkillSystem.SkillEffectType.ARContinueMode
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: ARContinueMode
+        path: ''
+        startLine: 510
+      summary: "\n添加、移除、持续生效\n"
+      example: []
+      syntax:
+        content:
+          CSharp: ARContinueMode = 2
+          VB: ARContinueMode = 2
+        return:
+          type: FinTOKMAK.SkillSystem.SkillEffectType
+      modifiers:
+        CSharp:
+        - public
+        - const
+        VB:
+        - Public
+        - Const
+  - id: FinTOKMAK.SkillSystem.SkillLogicManager
+    commentId: T:FinTOKMAK.SkillSystem.SkillLogicManager
+    language: CSharp
+    name:
+      CSharp: SkillLogicManager
+      VB: SkillLogicManager
+    nameWithType:
+      CSharp: SkillLogicManager
+      VB: SkillLogicManager
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillLogicManager
+      VB: FinTOKMAK.SkillSystem.SkillLogicManager
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillLogicManager
+      path: ''
+      startLine: 522
+    summary: "\n附加在游戏对象上的技能管理系统\n"
+    example: []
+    syntax:
+      content:
+        CSharp: 'public class SkillLogicManager : MonoBehaviour'
+        VB: >-
+          Public Class SkillLogicManager
+
+              Inherits MonoBehaviour
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillLogicManager.Update
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogicManager.Update
+      language: CSharp
+      name:
+        CSharp: Update()
+        VB: Update()
+      nameWithType:
+        CSharp: SkillLogicManager.Update()
+        VB: SkillLogicManager.Update()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogicManager.Update()
+        VB: FinTOKMAK.SkillSystem.SkillLogicManager.Update()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Update
+        path: ''
+        startLine: 531
+      syntax:
+        content:
+          CSharp: public void Update()
+          VB: Public Sub Update
+      overload: FinTOKMAK.SkillSystem.SkillLogicManager.Update*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogicManager.Add(FinTOKMAK.SkillSystem.SkillLogic)
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogicManager.Add(FinTOKMAK.SkillSystem.SkillLogic)
+      language: CSharp
+      name:
+        CSharp: Add(SkillLogic)
+        VB: Add(SkillLogic)
+      nameWithType:
+        CSharp: SkillLogicManager.Add(SkillLogic)
+        VB: SkillLogicManager.Add(SkillLogic)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogicManager.Add(FinTOKMAK.SkillSystem.SkillLogic)
+        VB: FinTOKMAK.SkillSystem.SkillLogicManager.Add(FinTOKMAK.SkillSystem.SkillLogic)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Add
+        path: ''
+        startLine: 560
+      summary: "\n触发技能\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void Add(SkillLogic logic)
+          VB: Public Sub Add(logic As SkillLogic)
+        parameters:
+        - id: logic
+          type: FinTOKMAK.SkillSystem.SkillLogic
+          description: 要添加的技能类型
+      overload: FinTOKMAK.SkillSystem.SkillLogicManager.Add*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogicManager.Remove(System.String)
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogicManager.Remove(System.String)
+      language: CSharp
+      name:
+        CSharp: Remove(String)
+        VB: Remove(String)
+      nameWithType:
+        CSharp: SkillLogicManager.Remove(String)
+        VB: SkillLogicManager.Remove(String)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogicManager.Remove(System.String)
+        VB: FinTOKMAK.SkillSystem.SkillLogicManager.Remove(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Remove
+        path: ''
+        startLine: 598
+      summary: "\n移除技能\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void Remove(string id)
+          VB: Public Sub Remove(id As String)
+        parameters:
+        - id: id
+          type: System.String
+          description: 技能ID
+      overload: FinTOKMAK.SkillSystem.SkillLogicManager.Remove*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogicManager.Clear
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogicManager.Clear
+      language: CSharp
+      name:
+        CSharp: Clear()
+        VB: Clear()
+      nameWithType:
+        CSharp: SkillLogicManager.Clear()
+        VB: SkillLogicManager.Clear()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogicManager.Clear()
+        VB: FinTOKMAK.SkillSystem.SkillLogicManager.Clear()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Clear
+        path: ''
+        startLine: 616
+      summary: "\n清理所有的技能\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void Clear()
+          VB: Public Sub Clear
+      overload: FinTOKMAK.SkillSystem.SkillLogicManager.Clear*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillLogicManager.Get(System.String)
+      commentId: M:FinTOKMAK.SkillSystem.SkillLogicManager.Get(System.String)
+      language: CSharp
+      name:
+        CSharp: Get(String)
+        VB: Get(String)
+      nameWithType:
+        CSharp: SkillLogicManager.Get(String)
+        VB: SkillLogicManager.Get(String)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillLogicManager.Get(System.String)
+        VB: FinTOKMAK.SkillSystem.SkillLogicManager.Get(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Get
+        path: ''
+        startLine: 627
+      summary: "\n获取已有的技能\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public SkillLogic Get(string id)
+          VB: Public Function Get(id As String) As SkillLogic
+        parameters:
+        - id: id
+          type: System.String
+          description: 技能的ID
+        return:
+          type: FinTOKMAK.SkillSystem.SkillLogic
+          description: 返回已有的技能,如果没有，则返回Null
+      overload: FinTOKMAK.SkillSystem.SkillLogicManager.Get*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: FinTOKMAK.SkillSystem.SkillManager
+    commentId: T:FinTOKMAK.SkillSystem.SkillManager
+    language: CSharp
+    name:
+      CSharp: SkillManager
+      VB: SkillManager
+    nameWithType:
+      CSharp: SkillManager
+      VB: SkillManager
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillManager
+      VB: FinTOKMAK.SkillSystem.SkillManager
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillManager
+      path: ''
+      startLine: 640
+    syntax:
+      content:
+        CSharp: 'public class SkillManager : MonoBehaviour'
+        VB: >-
+          Public Class SkillManager
+
+              Inherits MonoBehaviour
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillManager.cdDetectionInterval
+      commentId: F:FinTOKMAK.SkillSystem.SkillManager.cdDetectionInterval
+      language: CSharp
+      name:
+        CSharp: cdDetectionInterval
+        VB: cdDetectionInterval
+      nameWithType:
+        CSharp: SkillManager.cdDetectionInterval
+        VB: SkillManager.cdDetectionInterval
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.cdDetectionInterval
+        VB: FinTOKMAK.SkillSystem.SkillManager.cdDetectionInterval
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: cdDetectionInterval
+        path: ''
+        startLine: 645
+      syntax:
+        content:
+          CSharp: public float cdDetectionInterval
+          VB: Public cdDetectionInterval As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.preLoadSkills
+      commentId: F:FinTOKMAK.SkillSystem.SkillManager.preLoadSkills
+      language: CSharp
+      name:
+        CSharp: preLoadSkills
+        VB: preLoadSkills
+      nameWithType:
+        CSharp: SkillManager.preLoadSkills
+        VB: SkillManager.preLoadSkills
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.preLoadSkills
+        VB: FinTOKMAK.SkillSystem.SkillManager.preLoadSkills
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: preLoadSkills
+        path: ''
+        startLine: 651
+      summary: "\nSkills that are added to the player when initialized\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public List<Skill> preLoadSkills
+          VB: Public preLoadSkills As List(Of Skill)
+        return:
+          type: System.Collections.Generic.List{FinTOKMAK.SkillSystem.Skill}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.skills
+      commentId: F:FinTOKMAK.SkillSystem.SkillManager.skills
+      language: CSharp
+      name:
+        CSharp: skills
+        VB: skills
+      nameWithType:
+        CSharp: SkillManager.skills
+        VB: SkillManager.skills
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.skills
+        VB: FinTOKMAK.SkillSystem.SkillManager.skills
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: skills
+        path: ''
+        startLine: 652
+      syntax:
+        content:
+          CSharp: public Dictionary<string, Skill> skills
+          VB: Public skills As Dictionary(Of String, Skill)
+        return:
+          type: System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.Skill}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.eventNameConfig
+      commentId: F:FinTOKMAK.SkillSystem.SkillManager.eventNameConfig
+      language: CSharp
+      name:
+        CSharp: eventNameConfig
+        VB: eventNameConfig
+      nameWithType:
+        CSharp: SkillManager.eventNameConfig
+        VB: SkillManager.eventNameConfig
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.eventNameConfig
+        VB: FinTOKMAK.SkillSystem.SkillManager.eventNameConfig
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: eventNameConfig
+        path: ''
+        startLine: 655
+      syntax:
+        content:
+          CSharp: public SkillEventNameConfig eventNameConfig
+          VB: Public eventNameConfig As SkillEventNameConfig
+        return:
+          type: FinTOKMAK.SkillSystem.SkillEventNameConfig
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.skillEventHook
+      commentId: F:FinTOKMAK.SkillSystem.SkillManager.skillEventHook
+      language: CSharp
+      name:
+        CSharp: skillEventHook
+        VB: skillEventHook
+      nameWithType:
+        CSharp: SkillManager.skillEventHook
+        VB: SkillManager.skillEventHook
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.skillEventHook
+        VB: FinTOKMAK.SkillSystem.SkillManager.skillEventHook
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: skillEventHook
+        path: ''
+        startLine: 663
+      summary: "\nThe skill event hook that can inform external system the skill event has been called\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public Action<string> skillEventHook
+          VB: Public skillEventHook As Action(Of String)
+        return:
+          type: System.Action{System.String}
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem
+      commentId: P:FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem
+      language: CSharp
+      name:
+        CSharp: useLocalSkillSystem
+        VB: useLocalSkillSystem
+      nameWithType:
+        CSharp: SkillManager.useLocalSkillSystem
+        VB: SkillManager.useLocalSkillSystem
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem
+        VB: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: useLocalSkillSystem
+        path: ''
+        startLine: 671
+      summary: "\nif localCD is enabled\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public bool useLocalSkillSystem { get; set; }
+          VB: Public Property useLocalSkillSystem As Boolean
+        parameters: []
+        return:
+          type: System.Boolean
+      overload: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem*
+      modifiers:
+        CSharp:
+        - public
+        - get
+        - set
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.Add(FinTOKMAK.SkillSystem.Skill)
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.Add(FinTOKMAK.SkillSystem.Skill)
+      language: CSharp
+      name:
+        CSharp: Add(Skill)
+        VB: Add(Skill)
+      nameWithType:
+        CSharp: SkillManager.Add(Skill)
+        VB: SkillManager.Add(Skill)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.Add(FinTOKMAK.SkillSystem.Skill)
+        VB: FinTOKMAK.SkillSystem.SkillManager.Add(FinTOKMAK.SkillSystem.Skill)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Add
+        path: ''
+        startLine: 794
+      summary: "\n添加技能到可用技能列表\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void Add(Skill skill)
+          VB: Public Sub Add(skill As Skill)
+        parameters:
+        - id: skill
+          type: FinTOKMAK.SkillSystem.Skill
+      overload: FinTOKMAK.SkillSystem.SkillManager.Add*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.Remove(System.String)
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.Remove(System.String)
+      language: CSharp
+      name:
+        CSharp: Remove(String)
+        VB: Remove(String)
+      nameWithType:
+        CSharp: SkillManager.Remove(String)
+        VB: SkillManager.Remove(String)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.Remove(System.String)
+        VB: FinTOKMAK.SkillSystem.SkillManager.Remove(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Remove
+        path: ''
+        startLine: 816
+      summary: "\n将技能从可用列表中移除\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void Remove(string ID)
+          VB: Public Sub Remove(ID As String)
+        parameters:
+        - id: ID
+          type: System.String
+          description: 技能ID
+      overload: FinTOKMAK.SkillSystem.SkillManager.Remove*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.Get(System.String)
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.Get(System.String)
+      language: CSharp
+      name:
+        CSharp: Get(String)
+        VB: Get(String)
+      nameWithType:
+        CSharp: SkillManager.Get(String)
+        VB: SkillManager.Get(String)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.Get(System.String)
+        VB: FinTOKMAK.SkillSystem.SkillManager.Get(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Get
+        path: ''
+        startLine: 832
+      summary: "\n获取列表里的技能\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public Skill Get(string ID)
+          VB: Public Function Get(ID As String) As Skill
+        parameters:
+        - id: ID
+          type: System.String
+          description: 技能ID
+        return:
+          type: FinTOKMAK.SkillSystem.Skill
+          description: 返回对应技能，如果技能不存在则返回null
+      overload: FinTOKMAK.SkillSystem.SkillManager.Get*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.Clear
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.Clear
+      language: CSharp
+      name:
+        CSharp: Clear()
+        VB: Clear()
+      nameWithType:
+        CSharp: SkillManager.Clear()
+        VB: SkillManager.Clear()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.Clear()
+        VB: FinTOKMAK.SkillSystem.SkillManager.Clear()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: Clear
+        path: ''
+        startLine: 840
+      summary: "\nClear all the skills\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void Clear()
+          VB: Public Sub Clear
+      overload: FinTOKMAK.SkillSystem.SkillManager.Clear*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke(System.String)
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke(System.String)
+      language: CSharp
+      name:
+        CSharp: SkillEventsInvoke(String)
+        VB: SkillEventsInvoke(String)
+      nameWithType:
+        CSharp: SkillManager.SkillEventsInvoke(String)
+        VB: SkillManager.SkillEventsInvoke(String)
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke(System.String)
+        VB: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: SkillEventsInvoke
+        path: ''
+        startLine: 849
+      summary: "\nInvoke a skill event\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void SkillEventsInvoke(string skillEventName)
+          VB: Public Sub SkillEventsInvoke(skillEventName As String)
+        parameters:
+        - id: skillEventName
+          type: System.String
+          description: the name of the skill event
+      overload: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo
+      language: CSharp
+      name:
+        CSharp: GetSkillInfo()
+        VB: GetSkillInfo()
+      nameWithType:
+        CSharp: SkillManager.GetSkillInfo()
+        VB: SkillManager.GetSkillInfo()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo()
+        VB: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: GetSkillInfo
+        path: ''
+        startLine: 888
+      summary: "\nCall this method to get the skill cumulate count for all the skills\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public Dictionary<string, SkillManager.SkillStatus> GetSkillInfo()
+          VB: Public Function GetSkillInfo As Dictionary(Of String, SkillManager.SkillStatus)
+        return:
+          type: System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.SkillManager.SkillStatus}
+          description: The dictionary of the cumulate count for all the skills, key is the unique id, value is the cumulateCount
+      overload: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus(System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.SkillManager.SkillStatus})
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus(System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.SkillManager.SkillStatus})
+      language: CSharp
+      name:
+        CSharp: SetSkillStatus(Dictionary<String, SkillManager.SkillStatus>)
+        VB: SetSkillStatus(Dictionary(Of String, SkillManager.SkillStatus))
+      nameWithType:
+        CSharp: SkillManager.SetSkillStatus(Dictionary<String, SkillManager.SkillStatus>)
+        VB: SkillManager.SetSkillStatus(Dictionary(Of String, SkillManager.SkillStatus))
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus(System.Collections.Generic.Dictionary<System.String, FinTOKMAK.SkillSystem.SkillManager.SkillStatus>)
+        VB: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus(System.Collections.Generic.Dictionary(Of System.String, FinTOKMAK.SkillSystem.SkillManager.SkillStatus))
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: SetSkillStatus
+        path: ''
+        startLine: 908
+      summary: "\nCall this method to set the cumulate count of all the skills\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public void SetSkillStatus(Dictionary<string, SkillManager.SkillStatus> cdStatus)
+          VB: Public Sub SetSkillStatus(cdStatus As Dictionary(Of String, SkillManager.SkillStatus))
+        parameters:
+        - id: cdStatus
+          type: System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.SkillManager.SkillStatus}
+          description: all the cumulate count of the skills
+      overload: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+    commentId: T:FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+    language: CSharp
+    name:
+      CSharp: SkillManager.SkillStatus
+      VB: SkillManager.SkillStatus
+    nameWithType:
+      CSharp: SkillManager.SkillStatus
+      VB: SkillManager.SkillStatus
+    qualifiedName:
+      CSharp: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+      VB: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+    type: Struct
+    assemblies:
+    - cs.temp.dll
+    namespace: FinTOKMAK.SkillSystem
+    source:
+      id: SkillStatus
+      path: ''
+      startLine: 865
+    summary: "\nThe struct for skill status storage\n"
+    example: []
+    syntax:
+      content:
+        CSharp: >-
+          [Serializable]
+
+          public struct SkillStatus
+        VB: >-
+          <Serializable>
+
+          Public Structure SkillStatus
+    inheritedMembers:
+    - System.ValueType.Equals(System.Object)
+    - System.ValueType.GetHashCode
+    - System.Object.Equals(System.Object,System.Object)
+    - System.Object.ReferenceEquals(System.Object,System.Object)
+    - System.Object.GetType
+    attributes:
+    - type: System.SerializableAttribute
+      ctor: System.SerializableAttribute.#ctor
+      arguments: []
+    modifiers:
+      CSharp:
+      - public
+      - struct
+      VB:
+      - Public
+      - Structure
+    items:
+    - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.cumulateCount
+      commentId: F:FinTOKMAK.SkillSystem.SkillManager.SkillStatus.cumulateCount
+      language: CSharp
+      name:
+        CSharp: cumulateCount
+        VB: cumulateCount
+      nameWithType:
+        CSharp: SkillManager.SkillStatus.cumulateCount
+        VB: SkillManager.SkillStatus.cumulateCount
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.cumulateCount
+        VB: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.cumulateCount
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: cumulateCount
+        path: ''
+        startLine: 871
+      summary: "\nThe number of cumulated skill that can be used\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public int cumulateCount
+          VB: Public cumulateCount As Integer
+        return:
+          type: System.Int32
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.restCdTime
+      commentId: F:FinTOKMAK.SkillSystem.SkillManager.SkillStatus.restCdTime
+      language: CSharp
+      name:
+        CSharp: restCdTime
+        VB: restCdTime
+      nameWithType:
+        CSharp: SkillManager.SkillStatus.restCdTime
+        VB: SkillManager.SkillStatus.restCdTime
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.restCdTime
+        VB: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.restCdTime
+      type: Field
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: restCdTime
+        path: ''
+        startLine: 876
+      summary: "\nThe time left for skill to finish cd\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public float restCdTime
+          VB: Public restCdTime As Single
+        return:
+          type: System.Single
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString
+      commentId: M:FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString
+      language: CSharp
+      name:
+        CSharp: ToString()
+        VB: ToString()
+      nameWithType:
+        CSharp: SkillManager.SkillStatus.ToString()
+        VB: SkillManager.SkillStatus.ToString()
+      qualifiedName:
+        CSharp: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString()
+        VB: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: FinTOKMAK.SkillSystem
+      source:
+        id: ToString
+        path: ''
+        startLine: 878
+      syntax:
+        content:
+          CSharp: public override string ToString()
+          VB: Public Overrides Function ToString As String
+        return:
+          type: System.String
+      overload: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString*
+      overridden: System.ValueType.ToString
+      modifiers:
+        CSharp:
+        - public
+        - override
+        VB:
+        - Public
+        - Overrides
+references:
+  FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI*
+        name: OnInspectorGUI
+        nameWithType: SkillInfoEditor.OnInspectorGUI
+        qualifiedName: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI*
+        name: OnInspectorGUI
+        nameWithType: SkillInfoEditor.OnInspectorGUI
+        qualifiedName: FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillInfoEditor.OnInspectorGUI
+  FinTOKMAK.SkillSystem.SkillInfoEditor:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillInfoEditor
+        name: SkillInfoEditor
+        nameWithType: SkillInfoEditor
+        qualifiedName: FinTOKMAK.SkillSystem.SkillInfoEditor
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillInfoEditor
+        name: SkillInfoEditor
+        nameWithType: SkillInfoEditor
+        qualifiedName: FinTOKMAK.SkillSystem.SkillInfoEditor
+    isDefinition: true
+    commentId: T:FinTOKMAK.SkillSystem.SkillInfoEditor
+  FinTOKMAK.SkillSystem:
+    name:
+      CSharp:
+      - name: FinTOKMAK.SkillSystem
+        nameWithType: FinTOKMAK.SkillSystem
+        qualifiedName: FinTOKMAK.SkillSystem
+      VB:
+      - name: FinTOKMAK.SkillSystem
+        nameWithType: FinTOKMAK.SkillSystem
+        qualifiedName: FinTOKMAK.SkillSystem
+    isDefinition: true
+    commentId: N:FinTOKMAK.SkillSystem
+  FinTOKMAK.SkillSystem.SkillLogic:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogic
+        name: SkillLogic
+        nameWithType: SkillLogic
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogic
+        name: SkillLogic
+        nameWithType: SkillLogic
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic
+    isDefinition: true
+    parent: FinTOKMAK.SkillSystem
+    commentId: T:FinTOKMAK.SkillSystem.SkillLogic
+  FinTOKMAK.SkillSystem.SkillInfo:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillInfo
+        name: SkillInfo
+        nameWithType: SkillInfo
+        qualifiedName: FinTOKMAK.SkillSystem.SkillInfo
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillInfo
+        name: SkillInfo
+        nameWithType: SkillInfo
+        qualifiedName: FinTOKMAK.SkillSystem.SkillInfo
+    isDefinition: true
+    parent: FinTOKMAK.SkillSystem
+    commentId: T:FinTOKMAK.SkillSystem.SkillInfo
+  FinTOKMAK.SkillSystem.Skill:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.Skill
+        name: Skill
+        nameWithType: Skill
+        qualifiedName: FinTOKMAK.SkillSystem.Skill
+      VB:
+      - id: FinTOKMAK.SkillSystem.Skill
+        name: Skill
+        nameWithType: Skill
+        qualifiedName: FinTOKMAK.SkillSystem.Skill
+    isDefinition: true
+    parent: FinTOKMAK.SkillSystem
+    commentId: T:FinTOKMAK.SkillSystem.Skill
+  System.Collections.Generic.List`1:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    commentId: T:System.Collections.Generic.List`1
+  System.Collections.Generic:
+    name:
+      CSharp:
+      - name: System.Collections.Generic
+        nameWithType: System.Collections.Generic
+        qualifiedName: System.Collections.Generic
+        isExternal: true
+      VB:
+      - name: System.Collections.Generic
+        nameWithType: System.Collections.Generic
+        qualifiedName: System.Collections.Generic
+    isDefinition: true
+    commentId: N:System.Collections.Generic
+  System.Collections.Generic.List{System.String}:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Collections.Generic.List`1
+    parent: System.Collections.Generic
+    commentId: T:System.Collections.Generic.List{System.String}
+  FinTOKMAK.SkillSystem.SkillEventNameConfig:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillEventNameConfig
+        name: SkillEventNameConfig
+        nameWithType: SkillEventNameConfig
+        qualifiedName: FinTOKMAK.SkillSystem.SkillEventNameConfig
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillEventNameConfig
+        name: SkillEventNameConfig
+        nameWithType: SkillEventNameConfig
+        qualifiedName: FinTOKMAK.SkillSystem.SkillEventNameConfig
+    isDefinition: true
+    parent: FinTOKMAK.SkillSystem
+    commentId: T:FinTOKMAK.SkillSystem.SkillEventNameConfig
+  System:
+    name:
+      CSharp:
+      - name: System
+        nameWithType: System
+        qualifiedName: System
+        isExternal: true
+      VB:
+      - name: System
+        nameWithType: System
+        qualifiedName: System
+    isDefinition: true
+    commentId: N:System
+  System.String:
+    name:
+      CSharp:
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      VB:
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.String
+  LocalizedString:
+    name:
+      CSharp:
+      - id: LocalizedString
+        name: LocalizedString
+        nameWithType: LocalizedString
+        qualifiedName: LocalizedString
+        isExternal: true
+      VB:
+      - id: LocalizedString
+        name: LocalizedString
+        nameWithType: LocalizedString
+        qualifiedName: LocalizedString
+        isExternal: true
+    isDefinition: true
+  Texture:
+    name:
+      CSharp:
+      - id: Texture
+        name: Texture
+        nameWithType: Texture
+        qualifiedName: Texture
+        isExternal: true
+      VB:
+      - id: Texture
+        name: Texture
+        nameWithType: Texture
+        qualifiedName: Texture
+        isExternal: true
+    isDefinition: true
+    commentId: '!:Texture'
+  System.Single:
+    name:
+      CSharp:
+      - id: System.Single
+        name: Single
+        nameWithType: Single
+        qualifiedName: System.Single
+        isExternal: true
+      VB:
+      - id: System.Single
+        name: Single
+        nameWithType: Single
+        qualifiedName: System.Single
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Single
+  System.Int32:
+    name:
+      CSharp:
+      - id: System.Int32
+        name: Int32
+        nameWithType: Int32
+        qualifiedName: System.Int32
+        isExternal: true
+      VB:
+      - id: System.Int32
+        name: Int32
+        nameWithType: Int32
+        qualifiedName: System.Int32
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Int32
+  System.Boolean:
+    name:
+      CSharp:
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+      VB:
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Boolean
+  FinTOKMAK.SkillSystem.TriggerType:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.TriggerType
+        name: TriggerType
+        nameWithType: TriggerType
+        qualifiedName: FinTOKMAK.SkillSystem.TriggerType
+      VB:
+      - id: FinTOKMAK.SkillSystem.TriggerType
+        name: TriggerType
+        nameWithType: TriggerType
+        qualifiedName: FinTOKMAK.SkillSystem.TriggerType
+    isDefinition: true
+    parent: FinTOKMAK.SkillSystem
+    commentId: T:FinTOKMAK.SkillSystem.TriggerType
+  FinTOKMAK.SkillSystem.SkillEffectType:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillEffectType
+        name: SkillEffectType
+        nameWithType: SkillEffectType
+        qualifiedName: FinTOKMAK.SkillSystem.SkillEffectType
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillEffectType
+        name: SkillEffectType
+        nameWithType: SkillEffectType
+        qualifiedName: FinTOKMAK.SkillSystem.SkillEffectType
+    isDefinition: true
+    parent: FinTOKMAK.SkillSystem
+    commentId: T:FinTOKMAK.SkillSystem.SkillEffectType
+  FinTOKMAK.SkillSystem.SkillLogicManager:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager
+        name: SkillLogicManager
+        nameWithType: SkillLogicManager
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager
+        name: SkillLogicManager
+        nameWithType: SkillLogicManager
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager
+    isDefinition: true
+    parent: FinTOKMAK.SkillSystem
+    commentId: T:FinTOKMAK.SkillSystem.SkillLogicManager
+  FinTOKMAK.SkillSystem.SkillLogic.PrepareAction*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction*
+        name: PrepareAction
+        nameWithType: SkillLogic.PrepareAction
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction*
+        name: PrepareAction
+        nameWithType: SkillLogic.PrepareAction
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.PrepareAction
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogic.PrepareAction
+  FinTOKMAK.SkillSystem.SkillLogic.OnInitialization*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization*
+        name: OnInitialization
+        nameWithType: SkillLogic.OnInitialization
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization*
+        name: OnInitialization
+        nameWithType: SkillLogic.OnInitialization
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnInitialization
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogic.OnInitialization
+  FinTOKMAK.SkillSystem.SkillLogic.OnAdd*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnAdd*
+        name: OnAdd
+        nameWithType: SkillLogic.OnAdd
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnAdd
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnAdd*
+        name: OnAdd
+        nameWithType: SkillLogic.OnAdd
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnAdd
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogic.OnAdd
+  FinTOKMAK.SkillSystem.SkillLogic.OnRemove*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnRemove*
+        name: OnRemove
+        nameWithType: SkillLogic.OnRemove
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnRemove
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnRemove*
+        name: OnRemove
+        nameWithType: SkillLogic.OnRemove
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnRemove
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogic.OnRemove
+  FinTOKMAK.SkillSystem.SkillLogic.OnContinue*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnContinue*
+        name: OnContinue
+        nameWithType: SkillLogic.OnContinue
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnContinue
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogic.OnContinue*
+        name: OnContinue
+        nameWithType: SkillLogic.OnContinue
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogic.OnContinue
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogic.OnContinue
+  FinTOKMAK.SkillSystem.SkillLogicManager.Update*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Update*
+        name: Update
+        nameWithType: SkillLogicManager.Update
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Update
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Update*
+        name: Update
+        nameWithType: SkillLogicManager.Update
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Update
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogicManager.Update
+  FinTOKMAK.SkillSystem.SkillLogicManager.Add*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Add*
+        name: Add
+        nameWithType: SkillLogicManager.Add
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Add
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Add*
+        name: Add
+        nameWithType: SkillLogicManager.Add
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Add
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogicManager.Add
+  FinTOKMAK.SkillSystem.SkillLogicManager.Remove*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Remove*
+        name: Remove
+        nameWithType: SkillLogicManager.Remove
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Remove
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Remove*
+        name: Remove
+        nameWithType: SkillLogicManager.Remove
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Remove
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogicManager.Remove
+  FinTOKMAK.SkillSystem.SkillLogicManager.Clear*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Clear*
+        name: Clear
+        nameWithType: SkillLogicManager.Clear
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Clear
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Clear*
+        name: Clear
+        nameWithType: SkillLogicManager.Clear
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Clear
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogicManager.Clear
+  FinTOKMAK.SkillSystem.SkillLogicManager.Get*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Get*
+        name: Get
+        nameWithType: SkillLogicManager.Get
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Get
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillLogicManager.Get*
+        name: Get
+        nameWithType: SkillLogicManager.Get
+        qualifiedName: FinTOKMAK.SkillSystem.SkillLogicManager.Get
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillLogicManager.Get
+  System.Collections.Generic.List{FinTOKMAK.SkillSystem.Skill}:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: FinTOKMAK.SkillSystem.Skill
+        name: Skill
+        nameWithType: Skill
+        qualifiedName: FinTOKMAK.SkillSystem.Skill
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.List`1
+        name: List
+        nameWithType: List
+        qualifiedName: System.Collections.Generic.List
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: FinTOKMAK.SkillSystem.Skill
+        name: Skill
+        nameWithType: Skill
+        qualifiedName: FinTOKMAK.SkillSystem.Skill
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Collections.Generic.List`1
+    parent: System.Collections.Generic
+    commentId: T:System.Collections.Generic.List{FinTOKMAK.SkillSystem.Skill}
+  System.Collections.Generic.Dictionary`2:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.Dictionary`2
+        name: Dictionary
+        nameWithType: Dictionary
+        qualifiedName: System.Collections.Generic.Dictionary
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: TKey
+        nameWithType: TKey
+        qualifiedName: TKey
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - name: TValue
+        nameWithType: TValue
+        qualifiedName: TValue
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.Dictionary`2
+        name: Dictionary
+        nameWithType: Dictionary
+        qualifiedName: System.Collections.Generic.Dictionary
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: TKey
+        nameWithType: TKey
+        qualifiedName: TKey
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - name: TValue
+        nameWithType: TValue
+        qualifiedName: TValue
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    commentId: T:System.Collections.Generic.Dictionary`2
+  System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.Skill}:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.Dictionary`2
+        name: Dictionary
+        nameWithType: Dictionary
+        qualifiedName: System.Collections.Generic.Dictionary
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: FinTOKMAK.SkillSystem.Skill
+        name: Skill
+        nameWithType: Skill
+        qualifiedName: FinTOKMAK.SkillSystem.Skill
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.Dictionary`2
+        name: Dictionary
+        nameWithType: Dictionary
+        qualifiedName: System.Collections.Generic.Dictionary
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: FinTOKMAK.SkillSystem.Skill
+        name: Skill
+        nameWithType: Skill
+        qualifiedName: FinTOKMAK.SkillSystem.Skill
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Collections.Generic.Dictionary`2
+    parent: System.Collections.Generic
+    commentId: T:System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.Skill}
+  System.Action`1:
+    name:
+      CSharp:
+      - id: System.Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: System.Action
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: System.Action
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    commentId: T:System.Action`1
+  System.Action{System.String}:
+    name:
+      CSharp:
+      - id: System.Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: System.Action
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: System.Action
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Action`1
+    parent: System
+    commentId: T:System.Action{System.String}
+  FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem*
+        name: useLocalSkillSystem
+        nameWithType: SkillManager.useLocalSkillSystem
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem*
+        name: useLocalSkillSystem
+        nameWithType: SkillManager.useLocalSkillSystem
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.useLocalSkillSystem
+  FinTOKMAK.SkillSystem.SkillManager.Add*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Add*
+        name: Add
+        nameWithType: SkillManager.Add
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Add
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Add*
+        name: Add
+        nameWithType: SkillManager.Add
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Add
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.Add
+  FinTOKMAK.SkillSystem.SkillManager.Remove*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Remove*
+        name: Remove
+        nameWithType: SkillManager.Remove
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Remove
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Remove*
+        name: Remove
+        nameWithType: SkillManager.Remove
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Remove
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.Remove
+  FinTOKMAK.SkillSystem.SkillManager.Get*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Get*
+        name: Get
+        nameWithType: SkillManager.Get
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Get
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Get*
+        name: Get
+        nameWithType: SkillManager.Get
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Get
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.Get
+  FinTOKMAK.SkillSystem.SkillManager.Clear*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Clear*
+        name: Clear
+        nameWithType: SkillManager.Clear
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Clear
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.Clear*
+        name: Clear
+        nameWithType: SkillManager.Clear
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.Clear
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.Clear
+  FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke*
+        name: SkillEventsInvoke
+        nameWithType: SkillManager.SkillEventsInvoke
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke*
+        name: SkillEventsInvoke
+        nameWithType: SkillManager.SkillEventsInvoke
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.SkillEventsInvoke
+  System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.SkillManager.SkillStatus}:
+    name:
+      CSharp:
+      - id: System.Collections.Generic.Dictionary`2
+        name: Dictionary
+        nameWithType: Dictionary
+        qualifiedName: System.Collections.Generic.Dictionary
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+        name: SkillManager.SkillStatus
+        nameWithType: SkillManager.SkillStatus
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Collections.Generic.Dictionary`2
+        name: Dictionary
+        nameWithType: Dictionary
+        qualifiedName: System.Collections.Generic.Dictionary
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+        name: SkillManager.SkillStatus
+        nameWithType: SkillManager.SkillStatus
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Collections.Generic.Dictionary`2
+    parent: System.Collections.Generic
+    commentId: T:System.Collections.Generic.Dictionary{System.String,FinTOKMAK.SkillSystem.SkillManager.SkillStatus}
+  FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo*
+        name: GetSkillInfo
+        nameWithType: SkillManager.GetSkillInfo
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo*
+        name: GetSkillInfo
+        nameWithType: SkillManager.GetSkillInfo
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.GetSkillInfo
+  FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus*
+        name: SetSkillStatus
+        nameWithType: SkillManager.SetSkillStatus
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus*
+        name: SetSkillStatus
+        nameWithType: SkillManager.SetSkillStatus
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.SetSkillStatus
+  FinTOKMAK.SkillSystem.SkillManager:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager
+        name: SkillManager
+        nameWithType: SkillManager
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager
+        name: SkillManager
+        nameWithType: SkillManager
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager
+    isDefinition: true
+    commentId: T:FinTOKMAK.SkillSystem.SkillManager
+  System.ValueType:
+    name:
+      CSharp:
+      - id: System.ValueType
+        name: ValueType
+        nameWithType: ValueType
+        qualifiedName: System.ValueType
+        isExternal: true
+      VB:
+      - id: System.ValueType
+        name: ValueType
+        nameWithType: ValueType
+        qualifiedName: System.ValueType
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.ValueType
+  System.ValueType.Equals(System.Object):
+    name:
+      CSharp:
+      - id: System.ValueType.Equals(System.Object)
+        name: Equals
+        nameWithType: ValueType.Equals
+        qualifiedName: System.ValueType.Equals
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.ValueType.Equals(System.Object)
+        name: Equals
+        nameWithType: ValueType.Equals
+        qualifiedName: System.ValueType.Equals
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.ValueType
+    commentId: M:System.ValueType.Equals(System.Object)
+  System.ValueType.GetHashCode:
+    name:
+      CSharp:
+      - id: System.ValueType.GetHashCode
+        name: GetHashCode
+        nameWithType: ValueType.GetHashCode
+        qualifiedName: System.ValueType.GetHashCode
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.ValueType.GetHashCode
+        name: GetHashCode
+        nameWithType: ValueType.GetHashCode
+        qualifiedName: System.ValueType.GetHashCode
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.ValueType
+    commentId: M:System.ValueType.GetHashCode
+  System.Object:
+    name:
+      CSharp:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      VB:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Object
+  System.Object.Equals(System.Object,System.Object):
+    name:
+      CSharp:
+      - id: System.Object.Equals(System.Object,System.Object)
+        name: Equals
+        nameWithType: Object.Equals
+        qualifiedName: System.Object.Equals
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.Object.Equals(System.Object,System.Object)
+        name: Equals
+        nameWithType: Object.Equals
+        qualifiedName: System.Object.Equals
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.Object
+    commentId: M:System.Object.Equals(System.Object,System.Object)
+  System.Object.ReferenceEquals(System.Object,System.Object):
+    name:
+      CSharp:
+      - id: System.Object.ReferenceEquals(System.Object,System.Object)
+        name: ReferenceEquals
+        nameWithType: Object.ReferenceEquals
+        qualifiedName: System.Object.ReferenceEquals
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.Object.ReferenceEquals(System.Object,System.Object)
+        name: ReferenceEquals
+        nameWithType: Object.ReferenceEquals
+        qualifiedName: System.Object.ReferenceEquals
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.Object
+    commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  System.Object.GetType:
+    name:
+      CSharp:
+      - id: System.Object.GetType
+        name: GetType
+        nameWithType: Object.GetType
+        qualifiedName: System.Object.GetType
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.Object.GetType
+        name: GetType
+        nameWithType: Object.GetType
+        qualifiedName: System.Object.GetType
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.Object
+    commentId: M:System.Object.GetType
+  System.ValueType.ToString:
+    name:
+      CSharp:
+      - id: System.ValueType.ToString
+        name: ToString
+        nameWithType: ValueType.ToString
+        qualifiedName: System.ValueType.ToString
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.ValueType.ToString
+        name: ToString
+        nameWithType: ValueType.ToString
+        qualifiedName: System.ValueType.ToString
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.ValueType
+    commentId: M:System.ValueType.ToString
+  FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString*:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString*
+        name: ToString
+        nameWithType: SkillManager.SkillStatus.ToString
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString*
+        name: ToString
+        nameWithType: SkillManager.SkillStatus.ToString
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString
+    isDefinition: true
+    commentId: Overload:FinTOKMAK.SkillSystem.SkillManager.SkillStatus.ToString
+  FinTOKMAK.SkillSystem.SkillManager.SkillStatus:
+    name:
+      CSharp:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+        name: SkillManager.SkillStatus
+        nameWithType: SkillManager.SkillStatus
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+      VB:
+      - id: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+        name: SkillManager.SkillStatus
+        nameWithType: SkillManager.SkillStatus
+        qualifiedName: FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+    isDefinition: true
+    commentId: T:FinTOKMAK.SkillSystem.SkillManager.SkillStatus
+  System.SerializableAttribute:
+    name:
+      CSharp:
+      - id: System.SerializableAttribute
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute
+        qualifiedName: System.SerializableAttribute
+        isExternal: true
+      VB:
+      - id: System.SerializableAttribute
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute
+        qualifiedName: System.SerializableAttribute
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.SerializableAttribute
+  System.SerializableAttribute.#ctor:
+    name:
+      CSharp:
+      - id: System.SerializableAttribute.#ctor
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute.SerializableAttribute
+        qualifiedName: System.SerializableAttribute.SerializableAttribute
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+      VB:
+      - id: System.SerializableAttribute.#ctor
+        name: SerializableAttribute
+        nameWithType: SerializableAttribute.SerializableAttribute
+        qualifiedName: System.SerializableAttribute.SerializableAttribute
+        isExternal: true
+      - name: (
+        nameWithType: (
+        qualifiedName: (
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    parent: System.SerializableAttribute
+    commentId: M:System.SerializableAttribute.#ctor
