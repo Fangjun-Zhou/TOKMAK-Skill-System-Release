@@ -16,11 +16,6 @@ namespace FinTOKMAK.SkillSystem
         public SkillInfo info;
 
         /// <summary>
-        /// The unique ID of the skill.
-        /// </summary>
-        [HideInInspector] public string id;
-
-        /// <summary>
         /// The logic execution effect of the Skill.
         /// ARMode means execute OnAdd and OnRemove.
         /// ContinueMode means execute OnContinue.
@@ -37,12 +32,7 @@ namespace FinTOKMAK.SkillSystem
         [BoxGroup("Universal Skill Logic Settings")]
         [Tooltip("The time span the skill can last.")]
         public float continueTime;
-        
-        /// <summary>
-        /// The time the skill will be removed.
-        /// </summary>
-        [HideInInspector] public float continueStopTime;
-        
+
         /// <summary>
         /// Will a new instance of the skill adding to the skill system overwrite the current skill instance's stop time.
         /// </summary>
@@ -57,6 +47,22 @@ namespace FinTOKMAK.SkillSystem
         [Tooltip("The deltaTime of calling Continue() method.")]
         public float continueDeltaTime;
 
+        #endregion
+
+        #region Hide Public Field
+
+        /// <summary>
+        /// The unique ID of the skill.
+        /// </summary>
+        [HideInInspector] public string id;
+        
+        
+        /// <summary>
+        /// The time the skill will be removed.
+        /// </summary>
+        [HideInInspector] public float continueStopTime;
+        
+        
         /// <summary>
         /// The next time OnContinue will execute.
         /// </summary>

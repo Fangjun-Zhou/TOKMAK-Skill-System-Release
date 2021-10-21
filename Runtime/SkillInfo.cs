@@ -9,15 +9,15 @@ namespace FinTOKMAK.SkillSystem
     public class SkillInfo : ScriptableObject
     {
         /// <summary>
-        /// 技能的唯一ID
+        /// The unique ID of the skill
         /// </summary>
         public string id;
         /// <summary>
-        /// 技能的名称（用户交互用）
+        /// The skill display name (for UI usage)
         /// </summary>
         public LocalizedString skillName;
         /// <summary>
-        /// 技能的描述（用户交互用）
+        /// The detailed description of the skill (for UI usage)
         /// </summary>
         public LocalizedString description;
 
@@ -27,56 +27,56 @@ namespace FinTOKMAK.SkillSystem
         public Texture skillIcon;
 
         /// <summary>
-        /// 技能事件配置文件
+        /// The config file of skill events
         /// </summary>
         public SkillEventNameConfig eventNameConfig;
         /// <summary>
-        /// 直接触发事件名称
+        /// The event name for direct skill trigger
         /// </summary>
-        [Tooltip("该事件会直接触发技能的释放")]
+        [Tooltip("This event will directly trigger and release the skill")]
         public string triggerEventName;
         /// <summary>
-        /// 准备事件名称
+        /// The event name to trigger the event into prepare mode
         /// </summary>
-        [Tooltip("该事件会使技能进入准备状态，Instance触发模式的技能不需要配置")]
+        [Tooltip("This event will trigger the skill into the prepare mode, no need to config this event in Instance mode")]
         public string prepareEventName;
         /// <summary>
-        /// 取消事件名称列表
+        /// The list of event to cancel the prepare state.
         /// </summary>
-        [Tooltip("这些事件会使技能取消准备状态，Instance触发模式的技能不需要配置")]
+        [Tooltip("These events will cancel the prepare state of the event, no need to config this event in Instance mode")]
         public List<string> cancelEventName;
         
         /// <summary>
-        /// 技能的冷却cd
+        /// The CD of the skill
         /// </summary>
         public float cd;
         
         /// <summary>
-        /// 结束冷却的时间
+        /// The time skill will finish its cd
         /// </summary>
         [HideInInspector] public float cdEndTime;
 
         /// <summary>
-        /// 最大可积累技能数量
+        /// The maximum skill cumulate count.
         /// </summary>
         public int maxCumulateCount;
 
         /// <summary>
-        /// 当前可用技能数量
+        /// Current available skill number
         /// </summary>
         [HideInInspector] public int cumulateCount;
 
         /// <summary>
-        /// 是否满足前置技能要求
+        /// Does the skill fulfill the prerequisite skills
         /// </summary>
         [HideInInspector]
         public bool isActive;
         /// <summary>
-        /// 前置技能要求
+        /// Skill prerequisite
         /// </summary>
         public List<string> needActiveSkillID;
         /// <summary>
-        /// 技能触发类型
+        /// Skill trigger type
         /// </summary>
         public TriggerType triggerType;
     }
@@ -84,11 +84,13 @@ namespace FinTOKMAK.SkillSystem
     public enum TriggerType
     {
         /// <summary>
-        /// 立即触发模式，即事件直接触发技能
+        /// Instance trigger type, trigger the skill logic immediately when the event is triggered.
         /// </summary>
         Instance,
         /// <summary>
-        /// 准备触发模式，即准备事件激活准备状态，进入准备状态后才可以由触发事件触发技能
+        /// Prepare event mode.
+        /// Enter the prepare state when the prepare event is triggered.
+        /// After that, the trigger event can trigger the main skill logic.
         /// </summary>
         Prepared
     }
