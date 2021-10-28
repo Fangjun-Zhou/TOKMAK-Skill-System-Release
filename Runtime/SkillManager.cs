@@ -179,13 +179,12 @@ namespace FinTOKMAK.SkillSystem
         }
 
         /// <summary>
-        ///     添加技能到可用技能列表
+        /// Add a new skill to the skill dictionary.
         /// </summary>
-        /// <param name="logic">要添加的技能类型</param>
+        /// <param name="skill">The skill instance to add.</param>
         public void Add(Skill skill)
         {
             // Instantiate (deep copy skill)
-            skill = Instantiate(skill);
             skill = Instantiate(skill);
             skill.info = Instantiate(skill.info);
             
@@ -193,7 +192,7 @@ namespace FinTOKMAK.SkillSystem
 
             if (skills.ContainsKey(skill.info.id))
             {
-                Debug.Log($"该技能已存在:{skill.info.id}");
+                Debug.Log($"The same skill already exists:{skill.info.id}");
                 return;
             }
 
@@ -201,14 +200,14 @@ namespace FinTOKMAK.SkillSystem
         }
 
         /// <summary>
-        ///     将技能从可用列表中移除
+        /// Remove a skill from the skill dictionary.
         /// </summary>
-        /// <param name="ID">技能ID</param>
+        /// <param name="ID">The unique ID of the skill</param>
         public void Remove(string ID)
         {
-            if (skills.ContainsKey(ID))
+            if (!skills.ContainsKey(ID))
             {
-                Debug.Log("该技能不存在");
+                Debug.Log("The skill with certain name does not exist.");
                 return;
             }
             // Remove the skill with correspond ID
@@ -216,10 +215,10 @@ namespace FinTOKMAK.SkillSystem
         }
 
         /// <summary>
-        ///     获取列表里的技能
+        /// Get the skill in the skill dictonary.
         /// </summary>
-        /// <param name="ID">技能ID</param>
-        /// <returns>返回对应技能，如果技能不存在则返回null</returns>
+        /// <param name="ID">The unique ID of the skill.</param>
+        /// <returns>Return the instance of the skill.</returns>
         public Skill Get(string ID)
         {
             return skills[ID]; //拿到第一个ID相同的技能

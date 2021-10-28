@@ -1,4 +1,4 @@
-# PriorityQueue Package
+# TOKMAK Skill System
 
 ## Add the package to the Package Manager
 

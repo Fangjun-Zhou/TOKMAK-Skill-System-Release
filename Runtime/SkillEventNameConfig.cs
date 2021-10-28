@@ -7,7 +7,7 @@ namespace FinTOKMAK.SkillSystem
     public class SkillEventNameConfig : ScriptableObject
     {
         /// <summary>
-        /// 所有的技能事件名称
+        /// All the skill names
         /// </summary>
         public List<string> eventNames;
     }
