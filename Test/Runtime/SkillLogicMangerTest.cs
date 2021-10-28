@@ -28,8 +28,8 @@ public class SkillLogicManagerTest
         _logic = new TestSkill();
         _logic.continueDeltaTime = 0.02f;
         _logic.effectType = SkillEffectType.ARMode;
-        _logic.continueStopTimeOverlay = true;
-        _logic.continueTime = 1f;
+        _logic.skillTerminateTimeOverlay = true;
+        _logic.skillTime = 1f;
         _logic.id = "Logic";
     }
 
@@ -74,7 +74,7 @@ public class SkillLogicManagerTest
     public IEnumerator SkillLogic_Manager_Test_AutoRemove()
     {
         // 设置技能持续时间为1秒
-        _logic.continueTime = 1f;
+        _logic.skillTime = 1f;
         // 将技能加入skillLogic
         _logicManager.Add(_logic);
         // 检查确认技能的OnRemove方法未执行
@@ -91,7 +91,7 @@ public class SkillLogicManagerTest
     public IEnumerator SkillLogic_Manager_Test_Continue()
     {
         // 设置技能持续时间为1秒
-        _logic.continueTime = 1f;
+        _logic.skillTime = 1f;
         // 设置技能持续执行间隔为0.1秒
         _logic.continueDeltaTime = 0.1f;
         // 将技能设置为ARC模式,这样会执行Add,Remove和Continue方法
@@ -116,7 +116,7 @@ public class SkillLogicManagerTest
     public IEnumerator SkillLogic_Manager_Test_ContinueRunDelta()
     {
         // 设置技能持续时间为1秒
-        _logic.continueTime = 1f;
+        _logic.skillTime = 1f;
         // 设置技能持续执行间隔为0.2秒
         _logic.continueDeltaTime = 0.2f;
         // 将技能设置为ARC模式,这样会执行Add,Remove和Continue方法
@@ -126,7 +126,7 @@ public class SkillLogicManagerTest
         // 等待2秒
         yield return new WaitForSeconds(2);
         // 四舍五入考虑舍入误差
-        int count = (int)(_logic.continueTime / _logic.continueDeltaTime + 0.5f);
+        int count = (int)(_logic.skillTime / _logic.continueDeltaTime + 0.5f);
         // 检查确认Continue方法的执行次数是否有误
         Assert.AreEqual(count, _logic.runContinueCount);
     }

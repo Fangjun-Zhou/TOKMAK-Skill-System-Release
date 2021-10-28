@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace FinTOKMAK.SkillSystem
 {
@@ -29,16 +30,18 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// The time span the Skill last.
         /// </summary>
+        [FormerlySerializedAs("continueTime")]
         [BoxGroup("Universal Skill Logic Settings")]
         [Tooltip("The time span the skill can last.")]
-        public float continueTime;
+        public float skillTime;
 
         /// <summary>
         /// Will a new instance of the skill adding to the skill system overwrite the current skill instance's stop time.
         /// </summary>
+        [FormerlySerializedAs("continueStopTimeOverlay")]
         [BoxGroup("Universal Skill Logic Settings")]
         [Tooltip("If override the skill end time. If overlay, a new skill will not add the execution time to the remaining time")]
-        public bool continueStopTimeOverlay;
+        public bool skillTerminateTimeOverlay;
 
         /// <summary>
         /// The delta time of OnContinue callback execution.
@@ -60,13 +63,13 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// The time the skill will be removed.
         /// </summary>
-        [HideInInspector] public float continueStopTime;
+        [FormerlySerializedAs("continueStopTime")] [HideInInspector] public float skillTerminateTime;
         
         
         /// <summary>
         /// The next time OnContinue will execute.
         /// </summary>
-        [HideInInspector] public float continueDeltaTimeNext;
+        [FormerlySerializedAs("continueDeltaTimeNext")] [HideInInspector] public float nextContinueExecuteTime;
 
         #endregion
 

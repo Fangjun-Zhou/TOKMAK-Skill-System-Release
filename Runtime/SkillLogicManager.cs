@@ -26,21 +26,21 @@ namespace FinTOKMAK.SkillSystem
             skillList.RemoveAll(x =>
             {
                 // When the skill is still active
-                if (x.continueStopTime >= time) // 停止时间大于当前时间，说明技能没失效
+                if (x.skillTerminateTime >= time) // 停止时间大于当前时间，说明技能没失效
                 {
                     // Execute the continue lifecycle
-                    if (x.effectType != SkillEffectType.ARMode && x.continueDeltaTimeNext <= time) // 检查技能模式和持续执行间隔
+                    if (x.effectType != SkillEffectType.ARMode && x.nextContinueExecuteTime <= time) // 检查技能模式和持续执行间隔
                     {
-                        Debug.Log($"ContinueSkill:{x.id},ContinueDeltaTimeNext:{x.continueDeltaTimeNext},Time:{time}");
+                        Debug.Log($"ContinueSkill:{x.id},ContinueDeltaTimeNext:{x.nextContinueExecuteTime},Time:{time}");
                         x.OnContinue();
-                        x.continueDeltaTimeNext += x.continueDeltaTime * 1000f; // 计算下次执行间隔
-                        Debug.Log($"NewContinueDeltaTimeNext={x.continueDeltaTimeNext}");
+                        x.nextContinueExecuteTime += x.continueDeltaTime * 1000f; // 计算下次执行间隔
+                        Debug.Log($"NewContinueDeltaTimeNext={x.nextContinueExecuteTime}");
                     }
 
                     return false;
                 }
 
-                Debug.Log($"RemoveSkill:{x.id},continueStopTime:{x.continueStopTime},Time:{time}");
+                Debug.Log($"RemoveSkill:{x.id},continueStopTime:{x.skillTerminateTime},Time:{time}");
                 x.OnRemove();
                 return true;
             });
@@ -57,7 +57,7 @@ namespace FinTOKMAK.SkillSystem
 
             if (theSkillLogic == null)
             {
-                logic.continueStopTime = time;
+                logic.skillTerminateTime = time;
                 skillList.Add(logic);
             }
             else
@@ -74,16 +74,16 @@ namespace FinTOKMAK.SkillSystem
             //}
 
             // When the skill cd overlay the original cd
-            if (logic.continueStopTimeOverlay) // 技能覆盖模式
-                logic.continueStopTime = (int) (time + logic.continueTime * 1000f); // 覆盖
+            if (logic.skillTerminateTimeOverlay) // 技能覆盖模式
+                logic.skillTerminateTime = (int) (time + logic.skillTime * 1000f); // 覆盖
             // TODO: 非Overlay模式第一次调用会导致技能释放失效，因为continueTime初始值为0
             else
-                logic.continueStopTime += (int) (logic.continueTime * 1000f); // 非覆盖，时间累加模式
+                logic.skillTerminateTime += (int) (logic.skillTime * 1000f); // 非覆盖，时间累加模式
 
-            logic.continueDeltaTimeNext = time + logic.continueDeltaTime * 1000f;
+            logic.nextContinueExecuteTime = time + logic.continueDeltaTime * 1000f;
             logic.OnAdd(theSkillLogic);
             Debug.Log(
-                $"AddSKill[{logic.continueStopTimeOverlay}]:{logic.id},time{time},stop{logic.continueStopTime},[{logic.continueTime * 1000f}]");
+                $"AddSKill[{logic.skillTerminateTimeOverlay}]:{logic.id},time{time},stop{logic.skillTerminateTime},[{logic.skillTime * 1000f}]");
         }
 
         /// <summary>
