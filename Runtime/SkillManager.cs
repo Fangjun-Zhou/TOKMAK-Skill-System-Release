@@ -124,7 +124,7 @@ namespace FinTOKMAK.SkillSystem
                         {
                             // Decrease the cumulateCount and update cd only if the skill execution failed.
                             bool success = _logicManager.Add(skill);
-                            if (!success)
+                            if (success)
                             {
                                 skill.info.cumulateCount--;
                                 // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
@@ -318,7 +318,6 @@ namespace FinTOKMAK.SkillSystem
             return res;
         }
         
-        // TODO: Finish SetSkillCumulateCount
         /// <summary>
         /// Call this method to set the cumulate count of all the skills
         /// </summary>
