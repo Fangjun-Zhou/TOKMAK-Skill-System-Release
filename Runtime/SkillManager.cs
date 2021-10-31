@@ -30,12 +30,6 @@ namespace FinTOKMAK.SkillSystem
         public SkillEventNameConfig eventNameConfig;
 
         /// <summary>
-        /// The skill logic manager that add and remove the skill logic.
-        /// Works in a similar way comparing to the Buff system.
-        /// </summary>
-        private SkillLogicManager _manager;
-
-        /// <summary>
         /// The skill event hook that can inform external system the skill event has been called
         /// </summary>
         public Action<string> skillEventHook;
@@ -55,9 +49,27 @@ namespace FinTOKMAK.SkillSystem
             }
         }
 
+        /// <summary>
+        /// The skill event that available for skill instance to operate.
+        /// Readonly.
+        /// </summary>
+        public Dictionary<string, Action> skillEvents
+        {
+            get
+            {
+                return _skillEvents;
+            }
+        }
+
         #endregion
 
         #region Private Field
+        
+        /// <summary>
+        /// The skill logic manager that add and remove the skill logic.
+        /// Works in a similar way comparing to the Buff system.
+        /// </summary>
+        private SkillLogicManager _logicManager;
         
         /// <summary>
         /// The timer to detect cd, the cdDetectionInterval control the frequency of cd detection.
@@ -80,7 +92,7 @@ namespace FinTOKMAK.SkillSystem
 
         private void Awake()
         {
-            _manager = GetComponent<SkillLogicManager>();
+            _logicManager = GetComponent<SkillLogicManager>();
             
             // Initialize all the skills to the
             foreach (Skill skill in preLoadSkills)
@@ -110,12 +122,18 @@ namespace FinTOKMAK.SkillSystem
                     {
                         if (skill.info.cumulateCount > 0)
                         {
-                            _manager.Add(skill);
-                            skill.info.cumulateCount--;
-                            // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime
-                            if (skill.info.cdEndTime < Time.realtimeSinceStartup)
+                            // Decrease the cumulateCount and update cd only if the skill execution failed.
+                            bool success = _logicManager.Add(skill);
+                            if (!success)
                             {
-                                skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
+                                skill.info.cumulateCount--;
+                                // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
+                                // If cdEndTime > realtime, don't change the cdEndTime.
+                                // The skill cumulateCount will increment next time achieve the cdEndTime.
+                                if (skill.info.cdEndTime < Time.realtimeSinceStartup)
+                                {
+                                    skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
+                                } 
                             }
                         }
                         else
@@ -129,20 +147,26 @@ namespace FinTOKMAK.SkillSystem
                 else if (skill.info.triggerType == TriggerType.Prepared)
                 {
                     // Start listening to the prepare event.
-                    _skillEvents[skill.info.prepareEventName] += skill.PrepareAction;
-                    // PrepareAction应该实现的内容：
-                    // public void PrepareAction()
-                    // {
-                    //     skillEvents[skill.TriggerActionName] += () => {
-                    //         manager.Add(skill.skillLogic);
-                    //     };
-                    // }
+                    _skillEvents[skill.info.prepareEventName] += () =>
+                    {
+                        // Check if the cumulateCount is enough to enter the prepare state
+                        if (skill.info.cumulateCount <= 0)
+                        {
+                            Debug.Log("The skill is still cooling.");
+                            return;
+                        }
+
+                        _skillEvents[skill.info.triggerEventName] += skill.ExecuteAction;
+                        Debug.Log("The skill prepared.");
+                    };
                     
                     // The event to cancel the prepare event.
                     foreach (var cancelAction in skill.info.cancelEventName)
                         _skillEvents[cancelAction] += () =>
                         {
-                            _skillEvents[skill.info.prepareEventName] -= skill.PrepareAction;
+                            // Unregister the execute event
+                            _skillEvents[skill.info.triggerEventName] -= skill.ExecuteAction;
+                            Debug.Log("The skill prepare state canceled.");
                         };
                 }
             }
@@ -154,7 +178,7 @@ namespace FinTOKMAK.SkillSystem
             foreach (Skill skill in skills.Values)
             {
                 // TODO: separate skill logic here
-                skill.OnInitialization(_manager);
+                skill.OnInitialization(_logicManager, this);
             }
         }
 
@@ -168,12 +192,16 @@ namespace FinTOKMAK.SkillSystem
                     return;
                 _time = 0;
                 // Traverse all the skills and check the cd time
-                foreach (var skill in skills.Values) //遍历所有技能，检查CD时间
+                foreach (var skill in skills.Values) // 遍历所有技能，检查CD时间
                     if (skill.info.cdEndTime < Time.realtimeSinceStartup &&
                         skill.info.cumulateCount < skill.info.maxCumulateCount)
                     {
-                        skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
                         skill.info.cumulateCount++;
+                        // Increment the next cdEndTime only if not reach the max cumulateCount
+                        if (skill.info.cumulateCount < skill.info.maxCumulateCount)
+                        {
+                            skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
+                        }
                     }
             }
         }
@@ -221,7 +249,7 @@ namespace FinTOKMAK.SkillSystem
         /// <returns>Return the instance of the skill.</returns>
         public Skill Get(string ID)
         {
-            return skills[ID]; //拿到第一个ID相同的技能
+            return skills[ID]; // 拿到第一个ID相同的技能
         }
 
         /// <summary>
