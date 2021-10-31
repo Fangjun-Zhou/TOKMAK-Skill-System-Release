@@ -51,7 +51,7 @@ namespace FinTOKMAK.SkillSystem
         /// Trigger the skill logic
         /// </summary>
         /// <param name="logic">The skill to add</param>
-        public void Add(Skill logic)
+        public bool Add(Skill logic)
         {
             var theSkillLogic = skillList.FirstOrDefault(cus => cus.id == logic.id); // 拿到第一个ID相同的技能
 
@@ -64,11 +64,11 @@ namespace FinTOKMAK.SkillSystem
                 logic = theSkillLogic;
 
 
-            //if (logic.continueStopTime > time)//停止时间大于当前时间，说明技能没失效
+            //if (logic.continueStopTime > time) // 停止时间大于当前时间，说明技能没失效
             //{
 
             //}
-            //else//停止时间小于当前时间，说明技能过期，应该被移除
+            //else // 停止时间小于当前时间，说明技能过期，应该被移除
             //{
 
             //}
@@ -81,9 +81,10 @@ namespace FinTOKMAK.SkillSystem
                 logic.skillTerminateTime += (int) (logic.skillTime * 1000f); // 非覆盖，时间累加模式
 
             logic.nextContinueExecuteTime = time + logic.continueDeltaTime * 1000f;
-            logic.OnAdd(theSkillLogic);
+            bool success = logic.OnAdd(theSkillLogic);
             Debug.Log(
-                $"AddSKill[{logic.skillTerminateTimeOverlay}]:{logic.id},time{time},stop{logic.skillTerminateTime},[{logic.skillTime * 1000f}]");
+                $"AddSKill[{logic.skillTerminateTimeOverlay}]:{logic.id},time{time},stop{logic.skillTerminateTime},[{logic.skillTime * 1000f}],success:{success}");
+            return success;
         }
 
         /// <summary>
@@ -121,7 +122,7 @@ namespace FinTOKMAK.SkillSystem
         /// <returns>If the skill exist, return the skill. If not, return null</returns>
         public Skill Get(string id)
         {
-            return skillList.FirstOrDefault(cus => cus.id == id); //拿到第一个ID相同的技能
+            return skillList.FirstOrDefault(cus => cus.id == id); // 拿到第一个ID相同的技能
         }
     }
 }

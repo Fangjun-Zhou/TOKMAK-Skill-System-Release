@@ -139,10 +139,10 @@ public class SkillLogicManagerTest
         public bool runContinue;
         public int runContinueCount;
 
-        public override void OnAdd(Skill self)
+        public override bool OnAdd(Skill self)
         {
-            base.OnAdd(self);
             runAdd = true;
+            return true;
         }
 
         public override void OnRemove()
