@@ -76,27 +76,48 @@ namespace FinTOKMAK.SkillSystem
         #region Private Field
 
         /// <summary>
+        /// The SkillManager passed in when initialized.
+        /// </summary>
+        protected SkillManager _manager;
+
+        /// <summary>
         /// The SkillLogicManager passed in when initialized.
         /// </summary>
-        protected SkillLogicManager _manager;
+        protected SkillLogicManager _logicManager;
 
         #endregion
         
         /// <summary>
         /// The logic that should be execute when prepare
         /// </summary>
-        public virtual void PrepareAction()
+        public virtual void ExecuteAction()
         {
-            
+            // Execute 
+            bool success = _logicManager.Add(this);
+            if (success)
+            {
+                // Decrement the cumulateCount
+                info.cumulateCount--;
+                // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
+                // If cdEndTime > realtime, don't change the cdEndTime.
+                // The skill cumulateCount will increment next time achieve the cdEndTime.
+                if (info.cdEndTime < Time.realtimeSinceStartup)
+                {
+                    info.cdEndTime = Time.realtimeSinceStartup + info.cd;
+                }
+                // Unregister the event when success.
+                _manager.skillEvents[info.triggerEventName] -= ExecuteAction;
+            }
         }
 
         /// <summary>
         /// Call this method to initialize the skill, including getting necessary components
-        /// <param name="manager">The SkillLogicManager to add the skill (in the SkillManager)</param>
+        /// <param name="logicManager">The SkillLogicManager to add the skill (in the SkillManager)</param>
         /// </summary>
-        public virtual void OnInitialization(SkillLogicManager manager)
+        public virtual void OnInitialization(SkillLogicManager logicManager, SkillManager manager)
         {
             _manager = manager;
+            _logicManager = logicManager;
         }
 
         /// <summary>
@@ -105,8 +126,10 @@ namespace FinTOKMAK.SkillSystem
         /// Main logic of the skill should be write here.
         /// </summary>
         /// <param name="self">Possible another instance of current skill </param>
-        public virtual void OnAdd(Skill self)
+        /// <returns>true if the skill execute successfully, false if failed</returns>
+        public virtual bool OnAdd(Skill self)
         {
+            return true;
         }
 
         /// <summary>
