@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -147,6 +148,24 @@ namespace FinTOKMAK.SkillSystem
         /// </summary>
         public virtual void OnContinue()
         {
+        }
+
+        /// <summary>
+        /// Call the RPC using IRemoteSkillAgent.
+        /// </summary>
+        /// <param name="methodName">The name of method inside the current skill.</param>
+        /// <param name="methodParams">The param of the method.</param>
+        /// <returns>the return value of RPC call.</returns>
+        /// <exception cref="NullReferenceException">If the manager does not have a IRemoteSkillAgent.</exception>
+        protected object CallRPC(string methodName, params object[] methodParams)
+        {
+            if (_manager.remoteSkillAgent == null)
+            {
+                throw new NullReferenceException("No remote skill agent in manager, RPC call failed.");
+            }
+
+            return (_manager.remoteSkillAgent as IRemoteSkillAgent).RPCCall(this, methodName,
+                methodParams: methodParams);
         }
     }
 

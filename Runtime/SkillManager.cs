@@ -21,6 +21,7 @@ namespace FinTOKMAK.SkillSystem
         public List<Skill> preLoadSkills;
         /// <summary>
         /// All the skills currently in the system.
+        /// Keys are skill id, values are skill.
         /// </summary>
         public Dictionary<string, Skill> skills = new Dictionary<string, Skill>();
 
@@ -48,6 +49,9 @@ namespace FinTOKMAK.SkillSystem
                 _useLocalSkillSystem = value;
             }
         }
+
+        [InterfaceType(typeof(IRemoteSkillAgent))]
+        public MonoBehaviour remoteSkillAgent;
 
         /// <summary>
         /// The skill event that available for skill instance to operate.
@@ -170,6 +174,8 @@ namespace FinTOKMAK.SkillSystem
                         };
                 }
             }
+
+            ((IRemoteSkillAgent) remoteSkillAgent).skillManager = this;
         }
 
         private void Start()
