@@ -1,5 +1,7 @@
 using System;
+using System.Threading.Tasks;
 using NaughtyAttributes;
+using PlasticPipe.PlasticProtocol.Messages.Serialization;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -157,15 +159,17 @@ namespace FinTOKMAK.SkillSystem
         /// <param name="methodParams">The param of the method.</param>
         /// <returns>the return value of RPC call.</returns>
         /// <exception cref="NullReferenceException">If the manager does not have a IRemoteSkillAgent.</exception>
-        protected object CallRPC(string methodName, params object[] methodParams)
+        protected async Task<object> CallRPC(string methodName, params object[] methodParams)
         {
             if (_manager.remoteSkillAgent == null)
             {
                 throw new NullReferenceException("No remote skill agent in manager, RPC call failed.");
             }
 
-            return (_manager.remoteSkillAgent as IRemoteSkillAgent).RPCCall(this, methodName,
-                methodParams: methodParams);
+            object res = await (_manager.remoteSkillAgent as IRemoteSkillAgent).RPCCall(this, methodName,
+                methodParams);
+
+            return res;
         }
     }
 
