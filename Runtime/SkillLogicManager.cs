@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace FinTOKMAK.SkillSystem
@@ -51,7 +52,7 @@ namespace FinTOKMAK.SkillSystem
         /// Trigger the skill logic
         /// </summary>
         /// <param name="logic">The skill to add</param>
-        public bool Add(Skill logic)
+        public async Task<bool> Add(Skill logic)
         {
             var theSkillLogic = skillList.FirstOrDefault(cus => cus.id == logic.id); // 拿到第一个ID相同的技能
 
@@ -81,7 +82,7 @@ namespace FinTOKMAK.SkillSystem
                 logic.skillTerminateTime += (int) (logic.skillTime * 1000f); // 非覆盖，时间累加模式
 
             logic.nextContinueExecuteTime = time + logic.continueDeltaTime * 1000f;
-            bool success = logic.OnAdd(theSkillLogic);
+            bool success = await logic.OnAdd(theSkillLogic);
             Debug.Log(
                 $"AddSKill[{logic.skillTerminateTimeOverlay}]:{logic.id},time{time},stop{logic.skillTerminateTime},[{logic.skillTime * 1000f}],success:{success}");
             return success;

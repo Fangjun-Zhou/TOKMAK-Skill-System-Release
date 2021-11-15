@@ -93,10 +93,10 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// The logic that should be execute when prepare
         /// </summary>
-        public virtual void ExecuteAction()
+        public virtual async Task ExecuteAction()
         {
             // Execute 
-            bool success = _logicManager.Add(this);
+            bool success = await _logicManager.Add(this);
             if (success)
             {
                 // Decrement the cumulateCount
@@ -130,7 +130,7 @@ namespace FinTOKMAK.SkillSystem
         /// </summary>
         /// <param name="self">Possible another instance of current skill </param>
         /// <returns>true if the skill execute successfully, false if failed</returns>
-        public virtual bool OnAdd(Skill self)
+        public virtual async Task<bool> OnAdd(Skill self)
         {
             return true;
         }

@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace FinTOKMAK.SkillSystem
 {
+    public delegate Task AsyncAction();
+
     [RequireComponent(typeof(SkillLogicManager))]
     public class SkillManager : MonoBehaviour
     {
@@ -57,7 +60,7 @@ namespace FinTOKMAK.SkillSystem
         /// The skill event that available for skill instance to operate.
         /// Readonly.
         /// </summary>
-        public Dictionary<string, Action> skillEvents
+        public Dictionary<string, AsyncAction> skillEvents
         {
             get
             {
@@ -83,7 +86,7 @@ namespace FinTOKMAK.SkillSystem
         /// <summary>
         /// The skill event dictionary that work locally 
         /// </summary>
-        private Dictionary<string, Action> _skillEvents = new Dictionary<string, Action>();
+        private Dictionary<string, AsyncAction> _skillEvents = new Dictionary<string, AsyncAction>();
 
         /// <summary>
         /// If use local skill system.
@@ -105,7 +108,7 @@ namespace FinTOKMAK.SkillSystem
             }
 
             // Get the name of all the skills, create correspond Action
-            foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name, () => { });
+            foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name, async () => { });
 
             // Traverse all the skill and add the condition of event trigger into the correspond Action
             foreach (var skill in skills.Values)
@@ -122,12 +125,12 @@ namespace FinTOKMAK.SkillSystem
                     // Add the trigger logic into the corresponding event.
                     // When the event is triggered, add the skill logic through SkillLogicManager.
                     // OnAdd method will be execute at that time by the SkillLogicManager.
-                    _skillEvents[skill.info.triggerEventName] += () =>
+                    _skillEvents[skill.info.triggerEventName] += async () =>
                     {
                         if (skill.info.cumulateCount > 0)
                         {
                             // Decrease the cumulateCount and update cd only if the skill execution failed.
-                            bool success = _logicManager.Add(skill);
+                            bool success = await _logicManager.Add(skill);
                             if (success)
                             {
                                 skill.info.cumulateCount--;
@@ -151,7 +154,7 @@ namespace FinTOKMAK.SkillSystem
                 else if (skill.info.triggerType == TriggerType.Prepared)
                 {
                     // Start listening to the prepare event.
-                    _skillEvents[skill.info.prepareEventName] += () =>
+                    _skillEvents[skill.info.prepareEventName] += async () =>
                     {
                         // Check if the cumulateCount is enough to enter the prepare state
                         if (skill.info.cumulateCount <= 0)
@@ -166,7 +169,7 @@ namespace FinTOKMAK.SkillSystem
                     
                     // The event to cancel the prepare event.
                     foreach (var cancelAction in skill.info.cancelEventName)
-                        _skillEvents[cancelAction] += () =>
+                        _skillEvents[cancelAction] += async () =>
                         {
                             // Unregister the execute event
                             _skillEvents[skill.info.triggerEventName] -= skill.ExecuteAction;

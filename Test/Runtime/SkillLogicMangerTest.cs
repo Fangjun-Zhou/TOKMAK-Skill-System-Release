@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using FinTOKMAK.SkillSystem;
 using NUnit.Framework;
 using UnityEngine;
@@ -139,7 +140,7 @@ public class SkillLogicManagerTest
         public bool runContinue;
         public int runContinueCount;
 
-        public override bool OnAdd(Skill self)
+        public override async Task<bool> OnAdd(Skill self)
         {
             runAdd = true;
             return true;
