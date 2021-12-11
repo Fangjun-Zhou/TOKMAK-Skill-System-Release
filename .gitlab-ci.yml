@@ -64,5 +64,6 @@ doc-push:
     - git config --global user.email "${CI_EMAIL}" && git config --global user.name "${CI_USERNAME}"
     - 'exists=`git show-ref refs/heads/doc` && if [ -n "$exists" ]; then git branch -D doc; fi'
     - git checkout -b doc
+    - ls -la docs
     - git add -A # execute auto bump and push to master
     - git push origin doc:doc
