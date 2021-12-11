@@ -66,4 +66,5 @@ doc-push:
     - git checkout -b doc
     - ls -la docs
     - git add -A # execute auto bump and push to master
+    - git commit -m "Generate documentation base on commit ${CI_COMMIT_SHORT_SHA}"
     - git push origin doc:doc
