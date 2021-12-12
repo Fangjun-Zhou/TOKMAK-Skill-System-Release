@@ -1,0 +1,236 @@
+{
+  "homepages": [],
+  "source_base_path": "/builds/fintokmak/tokmak-skill-system-release/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.AsyncAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.AsyncAction.html",
+          "hash": "Tv0KpWTvkujItmW/lx0Eng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.IRemoteSkillAgent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.IRemoteSkillAgent.html",
+          "hash": "KDHrDBCnzOrPDmZEgUrlVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.Skill.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.Skill.html",
+          "hash": "YchuRvsH+IouU92J7E8eGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.SkillEffectType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.SkillEffectType.html",
+          "hash": "CcRih5vMViSVVOucoJi/cw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.SkillEventNameConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.SkillEventNameConfig.html",
+          "hash": "0UThuGK5UW6qhdWya7n8qw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.SkillInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.SkillInfo.html",
+          "hash": "OTJpsHxFdX2oqVuRXStQiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.SkillInfoEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.SkillInfoEditor.html",
+          "hash": "Q027K42bdyN0tViBlMmJYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.SkillLogicManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.SkillLogicManager.html",
+          "hash": "ifqsIFGgyLJ7AOkUpqDOOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.SkillManager.SkillStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.SkillManager.SkillStatus.html",
+          "hash": "mIgwGQ7anIoXNk5UB0pl3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.SkillManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.SkillManager.html",
+          "hash": "dvnixq8ioD7aaUCtrPyGIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.TriggerType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.TriggerType.html",
+          "hash": "eitvo7TAESwrFJ2pAmpjpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FinTOKMAK.SkillSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FinTOKMAK.SkillSystem.html",
+          "hash": "NP7Hh1d80n4TWn/4xcVIXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "6SSPDm1jZulvh3n79uTKAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "e+U1RrtCy3uHvKhZ7MWfmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "ZzYVJXv0K71rTGiGuG+9Cw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 12,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
