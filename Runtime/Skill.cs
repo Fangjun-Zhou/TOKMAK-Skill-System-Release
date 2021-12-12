@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using NaughtyAttributes;
-using PlasticPipe.PlasticProtocol.Messages.Serialization;
 using UnityEngine;
 using UnityEngine.Serialization;
 
