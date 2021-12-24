@@ -121,7 +121,6 @@ namespace FinTOKMAK.SkillSystem
                 // If the skill is Instance mode, trigger the event immediately when the event is invoked.
                 if (skill.info.triggerType == TriggerType.Instance)
                 {
-                    // 监听技能对应的触发事件，当该事件触发时，将技能加入manager，并执行对应onAdd
                     // Add the trigger logic into the corresponding event.
                     // When the event is triggered, add the skill logic through SkillLogicManager.
                     // OnAdd method will be execute at that time by the SkillLogicManager.
