@@ -160,6 +160,19 @@ namespace FinTOKMAK.SkillSystem
         }
 
         /// <summary>
+        /// Call this method to play the timeline using the
+        /// Timeline System in the _manager.
+        /// </summary>
+        public async Task PlayTimeline()
+        {
+            if (timeline == null)
+            {
+                throw new NullReferenceException($"Skill {info.id} need a timeline to play.");
+            }
+            _manager._timelineSystem.PlayTimeline(timeline);
+        }
+
+        /// <summary>
         /// Call the RPC using IRemoteSkillAgent.
         /// </summary>
         /// <param name="methodName">The name of method inside the current skill.</param>
