@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ namespace FinTOKMAK.SkillSystem
     public delegate Task AsyncAction();
 
     [RequireComponent(typeof(SkillLogicManager))]
+    [RequireComponent(typeof(TimelineSystem.Runtime.TimelineSystem))]
     public class SkillManager : MonoBehaviour
     {
         #region Public Field
@@ -70,6 +70,16 @@ namespace FinTOKMAK.SkillSystem
 
         #endregion
 
+        #region Hide Public Field
+
+        /// <summary>
+        /// The core timeline system manager used by current skill system.
+        /// </summary>
+        [HideInInspector]
+        public TimelineSystem.Runtime.TimelineSystem _timelineSystem;
+
+        #endregion
+
         #region Private Field
         
         /// <summary>
@@ -100,6 +110,7 @@ namespace FinTOKMAK.SkillSystem
         private void Awake()
         {
             _logicManager = GetComponent<SkillLogicManager>();
+            _timelineSystem = GetComponent<TimelineSystem.Runtime.TimelineSystem>();
             
             // Initialize all the skills to the
             foreach (Skill skill in preLoadSkills)
