@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using FinTOKMAK.TimelineSystem.Runtime;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,6 +18,13 @@ namespace FinTOKMAK.SkillSystem
         [BoxGroup("Skill Info")]
         [Tooltip("The universal skill info of the skill")]
         public SkillInfo info;
+
+        /// <summary>
+        /// The timeline that can be played by this Skill
+        /// </summary>
+        [BoxGroup("Skill Info")]
+        [Tooltip("The timeline of this skill")]
+        public Timeline timeline;
 
         /// <summary>
         /// The logic execution effect of the Skill.
