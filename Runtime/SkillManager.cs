@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace FinTOKMAK.SkillSystem
+namespace FinTOKMAK.SkillSystem.RunTime
 {
     public delegate Task AsyncAction();
 

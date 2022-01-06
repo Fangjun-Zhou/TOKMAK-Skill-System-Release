@@ -5,7 +5,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace FinTOKMAK.SkillSystem
+namespace FinTOKMAK.SkillSystem.RunTime
 {
     /// <summary>
     /// The base class of all the skill.

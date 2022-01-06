@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Threading.Tasks;
-using FinTOKMAK.SkillSystem;
+using FinTOKMAK.SkillSystem.RunTime;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;

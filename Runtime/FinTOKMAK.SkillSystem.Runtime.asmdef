@@ -5,7 +5,9 @@
         "UnityInterfaceSupport",
         "Unity.Localization",
         "NaughtyAttributes.Core",
-        "FinTOKMAK.TimelineSystem.Runtime"
+        "FinTOKMAK.TimelineSystem.Runtime",
+        "com.hextantstudios.utilities",
+        "Hextant Utilities"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

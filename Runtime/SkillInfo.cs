@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 
-namespace FinTOKMAK.SkillSystem
+namespace FinTOKMAK.SkillSystem.RunTime
 {
     [CreateAssetMenu(fileName = "Skill Info Config", menuName = "FinTOKMAK/Skill System/Create Skill Info Config",
         order = 0)]

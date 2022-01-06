@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace FinTOKMAK.SkillSystem
+namespace FinTOKMAK.SkillSystem.RunTime
 {
     public interface IRemoteSkillAgent
     {

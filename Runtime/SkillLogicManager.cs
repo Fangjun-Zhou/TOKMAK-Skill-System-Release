@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace FinTOKMAK.SkillSystem
+namespace FinTOKMAK.SkillSystem.RunTime
 {
     /// <summary>
     /// The logic manager for the skill system.

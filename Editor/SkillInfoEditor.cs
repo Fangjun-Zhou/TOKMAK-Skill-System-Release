@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
+using FinTOKMAK.SkillSystem.RunTime;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace FinTOKMAK.SkillSystem
+namespace FinTOKMAK.SkillSystem.Editor
 {
     [CustomEditor(typeof(SkillInfo))]
-    public class SkillInfoEditor : Editor
+    public class SkillInfoEditor : UnityEditor.Editor
     {
         #region Private Field
 
