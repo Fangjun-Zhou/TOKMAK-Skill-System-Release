@@ -111,81 +111,14 @@ namespace FinTOKMAK.SkillSystem.RunTime
         {
             _logicManager = GetComponent<SkillLogicManager>();
             _timelineSystem = GetComponent<TimelineSystem.Runtime.TimelineSystem>();
+
+            // Get the name of all the skills, create correspond Action
+            foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name, async () => { });
             
             // Initialize all the skills to the
             foreach (Skill skill in preLoadSkills)
             {
-                Add(skill);
-            }
-
-            // Get the name of all the skills, create correspond Action
-            foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name, async () => { });
-
-            // Traverse all the skill and add the condition of event trigger into the correspond Action
-            foreach (var skill in skills.Values)
-            {
-                // Initialize the cumulateCount
-                skill.info.cumulateCount = skill.info.maxCumulateCount;
-                // Initialize the cdEndTime
-                skill.info.cdEndTime = Time.realtimeSinceStartup;
-                skill.id = skill.info.id;
-                // If the skill is Instance mode, trigger the event immediately when the event is invoked.
-                if (skill.info.triggerType == TriggerType.Instance)
-                {
-                    // Add the trigger logic into the corresponding event.
-                    // When the event is triggered, add the skill logic through SkillLogicManager.
-                    // OnAdd method will be execute at that time by the SkillLogicManager.
-                    _skillEvents[skill.info.triggerEventName] += async () =>
-                    {
-                        if (skill.info.cumulateCount > 0)
-                        {
-                            // Decrease the cumulateCount and update cd only if the skill execution failed.
-                            bool success = await _logicManager.Add(skill);
-                            if (success)
-                            {
-                                skill.info.cumulateCount--;
-                                // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
-                                // If cdEndTime > realtime, don't change the cdEndTime.
-                                // The skill cumulateCount will increment next time achieve the cdEndTime.
-                                if (skill.info.cdEndTime < Time.realtimeSinceStartup)
-                                {
-                                    skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
-                                } 
-                            }
-                        }
-                        else
-                        {
-                            Debug.Log("The skill is still cooling.");
-                        }
-                    };
-                }
-
-                // If the skill is prepare mode, add the prepareAction to the prepare event
-                else if (skill.info.triggerType == TriggerType.Prepared)
-                {
-                    // Start listening to the prepare event.
-                    _skillEvents[skill.info.prepareEventName] += async () =>
-                    {
-                        // Check if the cumulateCount is enough to enter the prepare state
-                        if (skill.info.cumulateCount <= 0)
-                        {
-                            Debug.Log("The skill is still cooling.");
-                            return;
-                        }
-
-                        _skillEvents[skill.info.triggerEventName] += skill.ExecuteAction;
-                        Debug.Log("The skill prepared.");
-                    };
-                    
-                    // The event to cancel the prepare event.
-                    foreach (var cancelAction in skill.info.cancelEventName)
-                        _skillEvents[cancelAction] += async () =>
-                        {
-                            // Unregister the execute event
-                            _skillEvents[skill.info.triggerEventName] -= skill.ExecuteAction;
-                            Debug.Log("The skill prepare state canceled.");
-                        };
-                }
+                Add(skill, false);
             }
 
             ((IRemoteSkillAgent) remoteSkillAgent).skillManager = this;
@@ -229,7 +162,8 @@ namespace FinTOKMAK.SkillSystem.RunTime
         /// Add a new skill to the skill dictionary.
         /// </summary>
         /// <param name="skill">The skill instance to add.</param>
-        public void Add(Skill skill)
+        /// <param name="initialze">if initialize the added skill</param>
+        public void Add(Skill skill, bool initialze)
         {
             // Instantiate (deep copy skill)
             skill = Instantiate(skill);
@@ -242,8 +176,73 @@ namespace FinTOKMAK.SkillSystem.RunTime
                 Debug.Log($"The same skill already exists:{skill.info.id}");
                 return;
             }
+            
+            // Initialize the cumulateCount
+            skill.info.cumulateCount = skill.info.maxCumulateCount;
+            // Initialize the cdEndTime
+            skill.info.cdEndTime = Time.realtimeSinceStartup;
+            skill.id = skill.info.id;
+            // If the skill is Instance mode, trigger the event immediately when the event is invoked.
+            if (skill.info.triggerType == TriggerType.Instance)
+            {
+                // Add the trigger logic into the corresponding event.
+                // When the event is triggered, add the skill logic through SkillLogicManager.
+                // OnAdd method will be execute at that time by the SkillLogicManager.
+                _skillEvents[skill.info.triggerEventName] += async () =>
+                {
+                    if (skill.info.cumulateCount > 0)
+                    {
+                        // Decrease the cumulateCount and update cd only if the skill execution failed.
+                        bool success = await _logicManager.Add(skill);
+                        if (success)
+                        {
+                            skill.info.cumulateCount--;
+                            // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
+                            // If cdEndTime > realtime, don't change the cdEndTime.
+                            // The skill cumulateCount will increment next time achieve the cdEndTime.
+                            if (skill.info.cdEndTime < Time.realtimeSinceStartup)
+                            {
+                                skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
+                            } 
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("The skill is still cooling.");
+                    }
+                };
+            }
+
+            // If the skill is prepare mode, add the prepareAction to the prepare event
+            else if (skill.info.triggerType == TriggerType.Prepared)
+            {
+                // Start listening to the prepare event.
+                _skillEvents[skill.info.prepareEventName] += async () =>
+                {
+                    // Check if the cumulateCount is enough to enter the prepare state
+                    if (skill.info.cumulateCount <= 0)
+                    {
+                        Debug.Log("The skill is still cooling.");
+                        return;
+                    }
+
+                    _skillEvents[skill.info.triggerEventName] += skill.ExecuteAction;
+                    Debug.Log("The skill prepared.");
+                };
+                
+                // The event to cancel the prepare event.
+                foreach (var cancelAction in skill.info.cancelEventName)
+                    _skillEvents[cancelAction] += async () =>
+                    {
+                        // Unregister the execute event
+                        _skillEvents[skill.info.triggerEventName] -= skill.ExecuteAction;
+                        Debug.Log("The skill prepare state canceled.");
+                    };
+            }
 
             skills.Add(skill.info.id, skill);
+            if (initialze)
+                skill.OnInitialization(_logicManager, this);
         }
 
         /// <summary>
