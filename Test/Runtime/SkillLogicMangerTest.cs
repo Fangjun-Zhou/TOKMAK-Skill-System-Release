@@ -31,7 +31,6 @@ public class SkillLogicManagerTest
         _logic.effectType = SkillEffectType.ARMode;
         _logic.skillTerminateTimeOverlay = true;
         _logic.skillTime = 1f;
-        _logic.id = "Logic";
     }
 
     [TearDown]

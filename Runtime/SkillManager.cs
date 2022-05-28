@@ -181,7 +181,6 @@ namespace FinTOKMAK.SkillSystem.RunTime
             skill.info.cumulateCount = skill.info.maxCumulateCount;
             // Initialize the cdEndTime
             skill.info.cdEndTime = Time.realtimeSinceStartup;
-            skill.id = skill.info.id;
             // If the skill is Instance mode, trigger the event immediately when the event is invoked.
             if (skill.info.triggerType == TriggerType.Instance)
             {

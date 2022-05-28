@@ -67,7 +67,7 @@ namespace FinTOKMAK.SkillSystem.RunTime
         /// <summary>
         /// The unique ID of the skill.
         /// </summary>
-        [HideInInspector] public string id;
+        public string id => info.id;
         
         
         /// <summary>
