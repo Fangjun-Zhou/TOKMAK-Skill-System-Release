@@ -24,25 +24,25 @@ namespace FinTOKMAK.SkillSystem.RunTime
         public void Update()
         {
             time = (int) (Time.realtimeSinceStartup * 1000f);
-            skillList.RemoveAll(x =>
+            skillList.RemoveAll(skill =>
             {
                 // When the skill is still active
-                if (x.skillTerminateTime >= time) // 停止时间大于当前时间，说明技能没失效
+                if (skill.skillTerminateTime >= time) // 停止时间大于当前时间，说明技能没失效
                 {
                     // Execute the continue lifecycle
-                    if (x.effectType != SkillEffectType.ARMode && x.nextContinueExecuteTime <= time) // 检查技能模式和持续执行间隔
+                    if (skill.effectType != SkillEffectType.ARMode && skill.nextContinueExecuteTime <= time) // 检查技能模式和持续执行间隔
                     {
-                        Debug.Log($"ContinueSkill:{x.id},ContinueDeltaTimeNext:{x.nextContinueExecuteTime},Time:{time}");
-                        x.OnContinue();
-                        x.nextContinueExecuteTime += x.continueDeltaTime * 1000f; // 计算下次执行间隔
-                        Debug.Log($"NewContinueDeltaTimeNext={x.nextContinueExecuteTime}");
+                        Debug.Log($"ContinueSkill:{skill.id},ContinueDeltaTimeNext:{skill.nextContinueExecuteTime},Time:{time}");
+                        skill.OnContinue();
+                        skill.nextContinueExecuteTime += skill.continueDeltaTime * 1000f; // 计算下次执行间隔
+                        Debug.Log($"NewContinueDeltaTimeNext={skill.nextContinueExecuteTime}");
                     }
 
                     return false;
                 }
 
-                Debug.Log($"RemoveSkill:{x.id},continueStopTime:{x.skillTerminateTime},Time:{time}");
-                x.OnRemove();
+                Debug.Log($"RemoveSkill:{skill.id},continueStopTime:{skill.skillTerminateTime},Time:{time}");
+                skill.OnRemove();
                 return true;
             });
         }

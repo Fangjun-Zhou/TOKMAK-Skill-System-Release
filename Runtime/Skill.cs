@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FinTOKMAK.TimelineSystem.Runtime;
 using NaughtyAttributes;
@@ -68,7 +69,12 @@ namespace FinTOKMAK.SkillSystem.RunTime
         /// The unique ID of the skill.
         /// </summary>
         public string id => info.id;
-        
+
+        /// <summary>
+        /// If the skill is prepared.
+        /// </summary>
+        [HideInInspector]
+        public bool prepared = false;
         
         /// <summary>
         /// The time the skill will be removed.
@@ -102,21 +108,25 @@ namespace FinTOKMAK.SkillSystem.RunTime
         /// </summary>
         public virtual async Task ExecuteAction()
         {
-            // Execute 
-            bool success = await _logicManager.Add(this);
-            if (success)
+            if (info.cumulateCount > 0)
             {
-                // Decrement the cumulateCount
-                info.cumulateCount--;
-                // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
-                // If cdEndTime > realtime, don't change the cdEndTime.
-                // The skill cumulateCount will increment next time achieve the cdEndTime.
-                if (info.cdEndTime < Time.realtimeSinceStartup)
+                // Decrease the cumulateCount and update cd only if the skill execution failed.
+                bool success = await _logicManager.Add(this);
+                if (success)
                 {
-                    info.cdEndTime = Time.realtimeSinceStartup + info.cd;
+                    info.cumulateCount--;
+                    // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
+                    // If cdEndTime > realtime, don't change the cdEndTime.
+                    // The skill cumulateCount will increment next time achieve the cdEndTime.
+                    if (info.cdEndTime < Time.realtimeSinceStartup)
+                    {
+                        info.cdEndTime = Time.realtimeSinceStartup + info.cd;
+                    } 
                 }
-                // Unregister the event when success.
-                _manager.skillEvents[info.triggerEventName] -= ExecuteAction;
+            }
+            else
+            {
+                Debug.Log("The skill is still cooling.");
             }
         }
 

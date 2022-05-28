@@ -187,34 +187,31 @@ namespace FinTOKMAK.SkillSystem.RunTime
                 // Add the trigger logic into the corresponding event.
                 // When the event is triggered, add the skill logic through SkillLogicManager.
                 // OnAdd method will be execute at that time by the SkillLogicManager.
-                _skillEvents[skill.info.triggerEventName] += async () =>
-                {
-                    if (skill.info.cumulateCount > 0)
-                    {
-                        // Decrease the cumulateCount and update cd only if the skill execution failed.
-                        bool success = await _logicManager.Add(skill);
-                        if (success)
-                        {
-                            skill.info.cumulateCount--;
-                            // Reset the cdEndTime to the cd + realtime only if the cdEndTime < realtime.
-                            // If cdEndTime > realtime, don't change the cdEndTime.
-                            // The skill cumulateCount will increment next time achieve the cdEndTime.
-                            if (skill.info.cdEndTime < Time.realtimeSinceStartup)
-                            {
-                                skill.info.cdEndTime = Time.realtimeSinceStartup + skill.info.cd;
-                            } 
-                        }
-                    }
-                    else
-                    {
-                        Debug.Log("The skill is still cooling.");
-                    }
-                };
+                _skillEvents[skill.info.triggerEventName] += skill.ExecuteAction;
             }
 
             // If the skill is prepare mode, add the prepareAction to the prepare event
             else if (skill.info.triggerType == TriggerType.Prepared)
             {
+                // Cancel the preparation.
+                async Task CancelAction()
+                {
+                    // Unregister the execute event
+                    _skillEvents[skill.info.triggerEventName] -= PrepareExecuteAction;
+                    foreach (var cancelEvent in skill.info.cancelEventName)
+                        _skillEvents[cancelEvent] -= CancelAction;
+                    Debug.Log("The skill prepare state canceled.");
+                    
+                    skill.prepared = false;
+                }
+                
+                // Execution process when in prepare.
+                async Task PrepareExecuteAction()
+                {
+                    await skill.ExecuteAction();
+                    await CancelAction();
+                }
+                
                 // Start listening to the prepare event.
                 _skillEvents[skill.info.prepareEventName] += async () =>
                 {
@@ -225,18 +222,24 @@ namespace FinTOKMAK.SkillSystem.RunTime
                         return;
                     }
 
-                    _skillEvents[skill.info.triggerEventName] += skill.ExecuteAction;
+                    if (skill.prepared)
+                    {
+                        Debug.Log("Skill is already prepared");
+                        return;
+                    }
+
+                    _skillEvents[skill.info.triggerEventName] += PrepareExecuteAction;
+                    
+                    // The event to cancel the prepare event.
+                    foreach (var cancelEvent in skill.info.cancelEventName)
+                    {
+                        _skillEvents[cancelEvent] += CancelAction;
+                    }
+
+                    skill.prepared = true;
+                    
                     Debug.Log("The skill prepared.");
                 };
-                
-                // The event to cancel the prepare event.
-                foreach (var cancelAction in skill.info.cancelEventName)
-                    _skillEvents[cancelAction] += async () =>
-                    {
-                        // Unregister the execute event
-                        _skillEvents[skill.info.triggerEventName] -= skill.ExecuteAction;
-                        Debug.Log("The skill prepare state canceled.");
-                    };
             }
 
             skills.Add(skill.info.id, skill);
