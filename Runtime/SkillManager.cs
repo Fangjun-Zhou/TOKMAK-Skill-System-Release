@@ -8,6 +8,9 @@ using UnityEngine.Events;
 namespace FinTOKMAK.SkillSystem.RunTime
 {
     public delegate Task AsyncAction();
+    
+    [System.Serializable]
+    public class SerializableSkillCallback: SerializableCallback<string, Task>{}
 
     [RequireComponent(typeof(SkillLogicManager))]
     [RequireComponent(typeof(TimelineSystem.Runtime.TimelineSystem))]
@@ -74,10 +77,10 @@ namespace FinTOKMAK.SkillSystem.RunTime
         public UnityEvent<string> skillExecute;
         
         [BoxGroup("Skill Events")]
-        public UnityEvent<string> skillPrepared;
+        public SerializableSkillCallback skillPrepared;
         
         [BoxGroup("Skill Events")]
-        public UnityEvent<string> skillCanceled;
+        public SerializableSkillCallback skillCanceled;
 
         #endregion
 
@@ -213,6 +216,10 @@ namespace FinTOKMAK.SkillSystem.RunTime
                 // Cancel the preparation.
                 async Task CancelAction()
                 {
+                    Task cancelTask = skillCanceled?.Invoke(skill.id);
+                    if (cancelTask != null)
+                        await cancelTask;
+                    
                     // Unregister the execute event
                     _skillEvents[skill.info.triggerEventName] -= PrepareExecuteAction;
                     foreach (var cancelEvent in skill.info.cancelEventName)
@@ -220,7 +227,6 @@ namespace FinTOKMAK.SkillSystem.RunTime
                     Debug.Log("The skill prepare state canceled.");
                     
                     skill.prepared = false;
-                    skillCanceled?.Invoke(skill.id);
                 }
                 
                 // Execution process when in prepare.
@@ -246,6 +252,10 @@ namespace FinTOKMAK.SkillSystem.RunTime
                         Debug.Log("Skill is already prepared");
                         return;
                     }
+                    
+                    Task prepareTask = skillPrepared?.Invoke(skill.id);
+                    if (prepareTask != null)
+                        await prepareTask;
 
                     _skillEvents[skill.info.triggerEventName] += PrepareExecuteAction;
                     
@@ -256,7 +266,6 @@ namespace FinTOKMAK.SkillSystem.RunTime
                     }
 
                     skill.prepared = true;
-                    skillPrepared?.Invoke(skill.id);
                     
                     Debug.Log("The skill prepared.");
                 };
