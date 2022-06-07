@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FinTOKMAK.EventSystem.Runtime;
+using FinTOKMAK.SkillSystem.RunTime.SkillEvent;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace FinTOKMAK.SkillSystem.RunTime
 {
-    public delegate Task AsyncAction();
-    
     [System.Serializable]
     public class SerializableSkillCallback: SerializableCallback<string, Task>{}
 
@@ -34,11 +34,6 @@ namespace FinTOKMAK.SkillSystem.RunTime
         public Dictionary<string, Skill> skills = new Dictionary<string, Skill>();
 
         /// <summary>
-        /// The config file that store the name of all the skill events.
-        /// </summary>
-        public SkillEventNameConfig eventNameConfig;
-
-        /// <summary>
         /// The skill event hook that can inform external system the skill event has been called
         /// </summary>
         public Action<string> skillEventHook;
@@ -61,17 +56,8 @@ namespace FinTOKMAK.SkillSystem.RunTime
         [InterfaceType(typeof(IRemoteSkillAgent))]
         public MonoBehaviour remoteSkillAgent;
 
-        /// <summary>
-        /// The skill event that available for skill instance to operate.
-        /// Readonly.
-        /// </summary>
-        public Dictionary<string, AsyncAction> skillEvents
-        {
-            get
-            {
-                return _skillEvents;
-            }
-        }
+        [BoxGroup("Skill Event Manager")]
+        public SkillEventManager eventManager;
 
         [BoxGroup("Skill Events")]
         public UnityEvent<string> skillExecute;
@@ -106,11 +92,6 @@ namespace FinTOKMAK.SkillSystem.RunTime
         /// The timer to detect cd, the cdDetectionInterval control the frequency of cd detection.
         /// </summary>
         private float _time;
-        
-        /// <summary>
-        /// The skill event dictionary that work locally 
-        /// </summary>
-        private Dictionary<string, AsyncAction> _skillEvents = new Dictionary<string, AsyncAction>();
 
         /// <summary>
         /// If use local skill system.
@@ -126,9 +107,6 @@ namespace FinTOKMAK.SkillSystem.RunTime
             _logicManager = GetComponent<SkillLogicManager>();
             _timelineSystem = GetComponent<TimelineSystem.Runtime.TimelineSystem>();
 
-            // Get the name of all the skills, create correspond Action
-            foreach (var name in eventNameConfig.eventNames) _skillEvents.Add(name, async () => { });
-            
             // Initialize all the skills to the
             foreach (Skill skill in preLoadSkills)
             {
@@ -198,7 +176,7 @@ namespace FinTOKMAK.SkillSystem.RunTime
             // If the skill is Instance mode, trigger the event immediately when the event is invoked.
             if (skill.info.triggerType == TriggerType.Instance)
             {
-                async Task InstanceExecutionAction()
+                async Task InstanceExecutionAction(IEventData data)
                 {
                     await skill.ExecuteAction();
                     skillExecute?.Invoke(skill.id);
@@ -207,38 +185,38 @@ namespace FinTOKMAK.SkillSystem.RunTime
                 // Add the trigger logic into the corresponding event.
                 // When the event is triggered, add the skill logic through SkillLogicManager.
                 // OnAdd method will be execute at that time by the SkillLogicManager.
-                _skillEvents[skill.info.triggerEventName] += InstanceExecutionAction;
+                eventManager.RegisterEvent(skill.info.triggerEventName, InstanceExecutionAction);
             }
 
             // If the skill is prepare mode, add the prepareAction to the prepare event
             else if (skill.info.triggerType == TriggerType.Prepared)
             {
                 // Cancel the preparation.
-                async Task CancelAction()
+                async Task CancelAction(IEventData data)
                 {
                     Task cancelTask = skillCanceled?.Invoke(skill.id);
                     if (cancelTask != null)
                         await cancelTask;
                     
                     // Unregister the execute event
-                    _skillEvents[skill.info.triggerEventName] -= PrepareExecuteAction;
+                    eventManager.UnRegisterEvent(skill.info.triggerEventName, PrepareExecuteAction);
                     foreach (var cancelEvent in skill.info.cancelEventName)
-                        _skillEvents[cancelEvent] -= CancelAction;
+                        eventManager.UnRegisterEvent(cancelEvent.eventName, CancelAction);
                     Debug.Log("The skill prepare state canceled.");
                     
                     skill.prepared = false;
                 }
                 
                 // Execution process when in prepare.
-                async Task PrepareExecuteAction()
+                async Task PrepareExecuteAction(IEventData data)
                 {
                     await skill.ExecuteAction();
                     skillExecute?.Invoke(skill.id);
-                    await CancelAction();
+                    await CancelAction(null);
                 }
                 
                 // Start listening to the prepare event.
-                _skillEvents[skill.info.prepareEventName] += async () =>
+                eventManager.RegisterEvent(skill.info.prepareEventName, async data =>
                 {
                     // Check if the cumulateCount is enough to enter the prepare state
                     if (skill.info.cumulateCount <= 0)
@@ -257,18 +235,18 @@ namespace FinTOKMAK.SkillSystem.RunTime
                     if (prepareTask != null)
                         await prepareTask;
 
-                    _skillEvents[skill.info.triggerEventName] += PrepareExecuteAction;
+                    eventManager.RegisterEvent(skill.info.triggerEventName, PrepareExecuteAction);
                     
                     // The event to cancel the prepare event.
                     foreach (var cancelEvent in skill.info.cancelEventName)
                     {
-                        _skillEvents[cancelEvent] += CancelAction;
+                        eventManager.RegisterEvent(cancelEvent.eventName, CancelAction);
                     }
 
                     skill.prepared = true;
                     
                     Debug.Log("The skill prepared.");
-                };
+                });
             }
 
             skills.Add(skill.info.id, skill);
@@ -318,7 +296,7 @@ namespace FinTOKMAK.SkillSystem.RunTime
             // invoke the skill logic only when local
             if (useLocalSkillSystem)
             {
-                _skillEvents[skillEventName]?.Invoke();
+                eventManager.InvokeEvent(skillEventName, null);
             }
             else
             {

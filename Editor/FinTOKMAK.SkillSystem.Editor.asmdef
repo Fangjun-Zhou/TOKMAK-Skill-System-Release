@@ -2,7 +2,10 @@
     "name": "FinTOKMAK.SkillSystem.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:a2d373552a170f44999345abfa824282"
+        "GUID:a2d373552a170f44999345abfa824282",
+        "GUID:b1e315b56e6994bc8a1c4d69001fabcf",
+        "GUID:52000dd8b76c649b199a21f023accca6",
+        "GUID:5cb2ec59697a4f9438a8f30dc412b4a9"
     ],
     "includePlatforms": [
         "Editor"
