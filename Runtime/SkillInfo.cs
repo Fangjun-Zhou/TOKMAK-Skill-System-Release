@@ -7,7 +7,7 @@ using UnityEngine.Localization;
 namespace FinTOKMAK.SkillSystem.RunTime
 {
     [System.Serializable]
-    public class CancelEvent
+    public class SkillEventWrapper
     {
         [SkillEvent]
         public string eventName;
@@ -58,7 +58,7 @@ namespace FinTOKMAK.SkillSystem.RunTime
         /// </summary>
         [BoxGroup("Skill Events")]
         [Tooltip("These events will cancel the prepare state of the event, no need to config this event in Instance mode")]
-        public List<CancelEvent> cancelEventName;
+        public List<SkillEventWrapper> cancelEventName;
         
         /// <summary>
         /// The CD of the skill
@@ -97,6 +97,32 @@ namespace FinTOKMAK.SkillSystem.RunTime
         /// </summary>
         [BoxGroup("Config")]
         public TriggerType triggerType;
+
+        #region Public Methods
+
+        /// <summary>
+        /// Set the critical event for the skill.
+        /// If the skill is Instance trigger type, trigger event will be set.
+        /// If the skill is Prepare trigger type, prepare event will be set.
+        /// </summary>
+        /// <param name="eventName"></param>
+        public void SetCriticalEvent(string eventName)
+        {
+            switch (triggerType)
+            {
+                case TriggerType.Instance:
+                    triggerEventName = eventName;
+                    break;
+                case TriggerType.Prepared:
+                    prepareEventName = eventName;
+                    break;
+                default:
+                    Debug.LogError("Trigger type not exist.");
+                    break;
+            }
+        }
+
+        #endregion
     }
 
     public enum TriggerType
