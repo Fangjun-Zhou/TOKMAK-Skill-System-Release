@@ -55,6 +55,12 @@ namespace FinTOKMAK.SkillSystem.RunTime
         public bool skillTerminateTimeOverlay;
 
         /// <summary>
+        /// If the skill is only allowed to initialize once.
+        /// </summary>
+        [BoxGroup("Universal Skill Logic Settings")]
+        public bool initializeOnce = true;
+
+        /// <summary>
         /// The delta time of OnContinue callback execution.
         /// </summary>
         [BoxGroup("Universal Skill Logic Settings")]
@@ -90,6 +96,11 @@ namespace FinTOKMAK.SkillSystem.RunTime
         #endregion
 
         #region Private Field
+
+        /// <summary>
+        /// If the skill is already initialized.
+        /// </summary>
+        protected bool _initialized;
 
         /// <summary>
         /// The SkillManager passed in when initialized.
@@ -138,6 +149,8 @@ namespace FinTOKMAK.SkillSystem.RunTime
         {
             _manager = manager;
             _logicManager = logicManager;
+
+            _initialized = true;
         }
 
         /// <summary>

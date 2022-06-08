@@ -9,7 +9,8 @@
         "com.hextantstudios.utilities",
         "Hextant Utilities",
         "Siccity.SerializableCallback",
-        "FinTOKMAK.EventSystem.Runtime"
+        "FinTOKMAK.EventSystem.Runtime",
+        "SerializableDict.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

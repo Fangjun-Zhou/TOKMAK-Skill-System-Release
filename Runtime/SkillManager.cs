@@ -11,6 +11,9 @@ namespace FinTOKMAK.SkillSystem.RunTime
 {
     [System.Serializable]
     public class SerializableSkillCallback: SerializableCallback<string, Task>{}
+    
+    [System.Serializable]
+    public class SkillMountPointDict : SerializableDictionary<string, Transform>{}
 
     [RequireComponent(typeof(SkillLogicManager))]
     [RequireComponent(typeof(TimelineSystem.Runtime.TimelineSystem))]
@@ -55,6 +58,9 @@ namespace FinTOKMAK.SkillSystem.RunTime
 
         [InterfaceType(typeof(IRemoteSkillAgent))]
         public MonoBehaviour remoteSkillAgent;
+
+        [BoxGroup("Mount Point")]
+        public SkillMountPointDict mountPoints;
 
         [BoxGroup("Skill Event Manager")]
         public SkillEventManager eventManager;
