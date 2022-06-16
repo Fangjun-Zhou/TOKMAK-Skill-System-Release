@@ -5,7 +5,7 @@
   "description": "This is the Skill System implemented by FinTOKMAK Studio",
   "unity": "2019.4",
   "unityRelease": "0b5",
-  "license": "GPL",
+  "license": "MIT",
   "keywords": [],
   "author": {
     "name": "FinTOKMAK Studio",
