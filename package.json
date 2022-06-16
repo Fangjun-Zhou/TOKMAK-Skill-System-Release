@@ -6,6 +6,16 @@
   "unity": "2019.4",
   "unityRelease": "0b5",
   "license": "MIT",
+  "dependencies": {
+    "net.wraithavengames.unityinterfacesupport": "1.0.0",
+    "com.unity.localization": "1.3.2",
+    "com.dbrizov.naughtyattributes": "2.1.4",
+    "com.fintokmak.timelinesystem": "0.1.2",
+    "com.hextantstudios.utilities": "0.1.0",
+    "com.github.siccity.serializablecallback": "1.0.0",
+    "com.fintokmak.universaleventsystem": "0.2.6",
+    "com.fintokmak.serializabledictionary": "0.1.0"
+  },
   "keywords": [],
   "author": {
     "name": "FinTOKMAK Studio",
